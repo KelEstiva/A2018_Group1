@@ -67,7 +67,7 @@
 
                          <div class="row">
 
-                             <div class="col-md-3">
+                             <div class="col-md-6">
                                  <label>Gender</label>
                                 <div class="form-group">
                                     <asp:DropDownList CssClass="form-control" ID="DropDownList3" runat="server">
@@ -78,7 +78,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-3">
+                            <div class="col-md-6">
                                  <label>Course</label>
                                 <div class="form-group">
                                     <asp:DropDownList CssClass="form-control" ID="DropDownList1" runat="server">
@@ -92,11 +92,14 @@
                                     </asp:DropDownList>
                                 </div>
                             </div>
+                        </div>
 
-                             <div class="col-md-3">
+                        <div class="row">
+
+                             <div class="col-md-6">
                                  <label>Year</label>
                                 <div class="form-group">
-                                    <asp:DropDownList CssClass="form-control" ID="DropDownList2" runat="server">
+                                    <asp:DropDownList CssClass="form-control" ID="DropDownList6" runat="server">
                                         <asp:ListItem Text="Select" value="select"/>
                                         <asp:ListItem Text="1st Year" value="1st Year"/>
                                         <asp:ListItem Text="2nd Year" value="2nd Year"/>
@@ -106,16 +109,16 @@
                                 </div>
                             </div>
 
-                              <div class="col-md-3">
+                              <div class="col-md-6">
                                  <label>Student ID</label>
                                 <div class="form-group">
-                                    <asp:textbox CssClass="form-control" ID="textbox7" runat="server" placeholder="Student ID" TextMode="Number"></asp:textbox>
+                                    <asp:textbox CssClass="form-control" ID="textbox10" runat="server" placeholder="Student ID" TextMode="Number"></asp:textbox>
                                 </div>
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="col">
+                            <div class="col-12 mx-auto">
                                  <label>Full Address</label>
                                 <div class="form-group">
                                     <asp:textbox CssClass="form-control" ID="textbox5" runat="server" placeholder="Full Address" TextMode="MultiLine" Rows="2"></asp:textbox>
@@ -165,6 +168,7 @@
                         </div>
                     </div>
                   </div>
+                <br>
                <a href="HomePage.aspx"><< Back to HomePage</a> <br> <br>
             </div>
 

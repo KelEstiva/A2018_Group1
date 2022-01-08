@@ -66,7 +66,8 @@
 
                     </div>
                   </div>
-               <a href="HomePage.aspx"><< Back to HomePage</a> <br> <br> <br> <br> <br> <br> <br> <br>
+                <br>
+               <a href="HomePage.aspx"><< Back to HomePage</a> <br> <br> <br> <br> <br> <br> <br>
             </div>
 
             <div class="col-md-7">

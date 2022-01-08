@@ -23,7 +23,7 @@
                    <center>
                    <img width="150px" src="imgs/digital-inventory.png" />
                    <h4>Digital Book Inventory</h4>
-                   <p class="text-justify">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor. reprehenderit</p>
+                   <p class="text-justify"></p>
                    </center>
                </div>
 
@@ -31,7 +31,7 @@
                    <center>
                    <img width="150px" src="imgs/search-online.png" />
                    <h4>Search Books</h4>
-                   <p class="text-justify">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor. reprehenderit</p>
+                   <p class="text-justify"></p>
                    </center>
                </div>
 
@@ -39,7 +39,7 @@
                    <center>
                    <img width="150px" src="imgs/defaulters-list.png" />
                    <h4>Defaulter List</h4>
-                   <p class="text-justify">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor. reprehenderit</p>
+                   <p class="text-justify"></p>
                    </center>
                </div>
 
@@ -69,7 +69,7 @@
                    <center>
                    <img width="150px" src="imgs/sign-up.png" />
                    <h4>Sign Up</h4>
-                   <p class="text-justify">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor. reprehenderit</p>
+                   <p class="text-justify"></p>
                    </center>
                </div>
 
@@ -77,7 +77,7 @@
                    <center>
                    <img width="150px" src="imgs/search-online.png" />
                    <h4>Search Books</h4>
-                   <p class="text-justify">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor. reprehenderit</p>
+                   <p class="text-justify"></p>
                    </center>
                </div>
 
@@ -85,7 +85,7 @@
                    <center>
                    <img width="150px" src="imgs/library.png" />
                    <h4>Visit Us</h4>
-                   <p class="text-justify">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor. reprehenderit</p>
+                   <p class="text-justify"></p>
                    </center>
                </div>
 
