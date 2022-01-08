@@ -164,11 +164,6 @@
     <Content Include="AdminAuthorManagement.aspx" />
     <Content Include="AdminLogin.aspx" />
     <Content Include="AdminPublisherManagement.aspx" />
-    <Content Include="books\b1.jpg" />
-    <Content Include="books\b2.jpg" />
-    <Content Include="books\b3.jpg" />
-    <Content Include="books\b4.jpg" />
-    <Content Include="books\b5.jpg" />
     <Content Include="bootstrap\css\bootstrap.min.css" />
     <Content Include="bootstrap\js\bootstrap.min.js" />
     <Content Include="bootstrap\js\jquery-3.3.1.slim.min.js" />
