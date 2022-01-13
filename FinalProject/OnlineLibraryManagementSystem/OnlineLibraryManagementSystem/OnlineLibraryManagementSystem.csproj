@@ -1837,9 +1837,10 @@
     <Content Include="imgs\search-online.png" />
     <Content Include="imgs\sign-up.png" />
     <Content Include="imgs\writer.png" />
-    <Content Include="UserLogin.aspx" />
+    <Content Include="StudentLogin.aspx" />
     <Content Include="UserProfile.aspx" />
     <Content Include="UserSignUp.aspx" />
+    <Content Include="ViewBooks.aspx" />
     <Content Include="Web.config" />
     <Content Include="Default.aspx" />
   </ItemGroup>
@@ -1901,12 +1902,12 @@
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
-    <Compile Include="UserLogin.aspx.cs">
-      <DependentUpon>UserLogin.aspx</DependentUpon>
+    <Compile Include="StudentLogin.aspx.cs">
+      <DependentUpon>StudentLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UserLogin.aspx.designer.cs">
-      <DependentUpon>UserLogin.aspx</DependentUpon>
+    <Compile Include="StudentLogin.aspx.designer.cs">
+      <DependentUpon>StudentLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserProfile.aspx.cs">
       <DependentUpon>UserProfile.aspx</DependentUpon>
@@ -1928,6 +1929,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewBooks.aspx.cs">
+      <DependentUpon>ViewBooks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewBooks.aspx.designer.cs">
+      <DependentUpon>ViewBooks.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />

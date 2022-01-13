@@ -76,15 +76,6 @@ namespace OnlineLibraryManagementSystem {
         protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
         
         /// <summary>
-        /// textbox7 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textbox7;
-        
-        /// <summary>
         /// textbox5 control.
         /// </summary>
         /// <remarks>

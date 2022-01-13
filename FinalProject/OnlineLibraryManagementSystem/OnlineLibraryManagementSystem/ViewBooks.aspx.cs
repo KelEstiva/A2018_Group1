@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace OnlineLibraryManagementSystem
 {
-    public partial class UserLogin : System.Web.UI.Page
+    public partial class ViewBooks : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -20,7 +20,7 @@
                         <div class="row">
                             <div class="col">
                                 <center>
-                                    <h4>Member Sign Up</h4>
+                                    <h4>Student Sign Up</h4>
                                 </center>
                             </div>
                         </div>
@@ -65,7 +65,7 @@
 
                          <div class="row">
 
-                             <div class="col-md-3">
+                             <div class="col-md-4">
                                  <label>Gender</label>
                                 <div class="form-group">
                                     <asp:DropDownList CssClass="form-control" ID="DropDownList3" runat="server">
@@ -76,7 +76,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                  <label>Course</label>
                                 <div class="form-group">
                                     <asp:DropDownList CssClass="form-control" ID="DropDownList1" runat="server">
@@ -91,7 +91,7 @@
                                 </div>
                             </div>
 
-                             <div class="col-md-3">
+                             <div class="col-md-4">
                                  <label>Year</label>
                                 <div class="form-group">
                                     <asp:DropDownList CssClass="form-control" ID="DropDownList2" runat="server">
@@ -101,13 +101,6 @@
                                         <asp:ListItem Text="3rd Year" value="3rd Year"/>
                                         <asp:ListItem Text="4th Year" value="4th Year"/>
                                     </asp:DropDownList>
-                                </div>
-                            </div>
-
-                              <div class="col-md-3">
-                                 <label>Student ID</label>
-                                <div class="form-group">
-                                    <asp:textbox CssClass="form-control" ID="textbox7" runat="server" placeholder="Student ID" TextMode="Number"></asp:textbox>
                                 </div>
                             </div>
                         </div>
@@ -131,9 +124,9 @@
 
                          <div class="row">
                             <div class="col-md-6">
-                                 <label>User ID</label>
+                                 <label>Student ID</label>
                                 <div class="form-group">
-                                    <asp:textbox class="form-control" ID="textbox6" runat="server" placeholder="User ID"></asp:textbox>
+                                    <asp:textbox class="form-control" ID="textbox6" runat="server" placeholder="Student ID" TextMode="Number"></asp:textbox>
                                 </div>
                             </div>
 
@@ -148,7 +141,7 @@
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    <asp:button class="btn btn-success btn-block btn-lg" ID="Button1" runat="server" text="Sign Up" />
+                                    <asp:button class="btn btn-success btn-block btn-lg" ID="Button1" runat="server" text="Sign Up" OnClick="Button1_Click" />
                                 </div>
                             </div>
                         </div>

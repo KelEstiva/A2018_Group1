@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace OnlineLibraryManagementSystem
 {
-    public partial class AdminLogin : System.Web.UI.Page
+    public partial class UserLogin : System.Web.UI.Page
     {
 
         string strcon = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
@@ -22,6 +22,7 @@ namespace OnlineLibraryManagementSystem
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+
             try
             {
                 SqlConnection con = new SqlConnection(strcon);
@@ -29,14 +30,14 @@ namespace OnlineLibraryManagementSystem
                 {
                     con.Open();
                 }
-                SqlCommand cmd = new SqlCommand("SELECT * from admin_login_tbl where username='" + textbox1.Text.Trim() + "' AND password='" + textbox2.Text.Trim() + "'", con);
+                SqlCommand cmd = new SqlCommand("SELECT * from student_master_tbl where student_id='"+textbox1.Text.Trim()+"' AND password='"+textbox2.Text.Trim()+"'",con );
 
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.HasRows)
                 {
                     while (dr.Read())
                     {
-                        Response.Write("<script>alert('" + dr.GetValue(0).ToString() + "');</script>");
+                        Response.Write("<script>alert('"+dr.GetValue(7).ToString()+"');</script>");
                     }
                 }
                 else
@@ -46,9 +47,11 @@ namespace OnlineLibraryManagementSystem
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('"+ex.Message+"');</script>");
+                Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
 
         }
+
+
     }
 }

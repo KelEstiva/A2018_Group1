@@ -44,7 +44,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <asp:button class="btn btn-success btn-block btn-lg" ID="Button1" runat="server" text="Login" />
+                                    <asp:button class="btn btn-success btn-block btn-lg" ID="Button1" runat="server" text="Login" OnClick="Button1_Click" />
                                     
                                 </div>
 

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="UserLogin.aspx.cs" Inherits="OnlineLibraryManagementSystem.UserLogin" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="StudentLogin.aspx.cs" Inherits="OnlineLibraryManagementSystem.UserLogin" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -20,7 +20,7 @@
                         <div class="row">
                             <div class="col">
                                 <center>
-                                    <h3>Member Login</h3>
+                                    <h3>Student Login</h3>
                                 </center>
                             </div>
                         </div>
@@ -33,9 +33,9 @@
 
                         <div class="row">
                             <div class="col">
-                                <label>Member ID</label>
+                                <label>Student ID</label>
                                 <div class="form-group">
-                                    <asp:textbox CssClass="form-control" ID="textbox1" runat="server" placeholder="Member ID"></asp:textbox>
+                                    <asp:textbox CssClass="form-control" ID="textbox1" runat="server" placeholder="Student ID" TextMode="Number"></asp:textbox>
                                 </div>
 
                                 <label>Password</label>
@@ -44,7 +44,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <asp:button class="btn btn-success btn-block btn-lg" ID="Button1" runat="server" text="Login" />
+                                    <asp:button class="btn btn-success btn-block btn-lg" ID="Button1" runat="server" text="Login" OnClick="Button1_Click" />
                                     
                                 </div>
 
