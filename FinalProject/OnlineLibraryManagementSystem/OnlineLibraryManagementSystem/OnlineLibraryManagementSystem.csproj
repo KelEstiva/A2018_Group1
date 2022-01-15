@@ -96,7 +96,7 @@
   <ItemGroup>
     <Content Include="AdminBookInventory.aspx" />
     <Content Include="AdminBookIssuingPage.aspx" />
-    <Content Include="AdminMemberManagement.aspx" />
+    <Content Include="AdminStudentManagement.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -1838,8 +1838,8 @@
     <Content Include="imgs\sign-up.png" />
     <Content Include="imgs\writer.png" />
     <Content Include="StudentLogin.aspx" />
-    <Content Include="UserProfile.aspx" />
-    <Content Include="UserSignUp.aspx" />
+    <Content Include="StudentProfile.aspx" />
+    <Content Include="StudentSignUp.aspx" />
     <Content Include="ViewBooks.aspx" />
     <Content Include="Web.config" />
     <Content Include="Default.aspx" />
@@ -1873,12 +1873,12 @@
     <Compile Include="AdminLogin.aspx.designer.cs">
       <DependentUpon>AdminLogin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AdminMemberManagement.aspx.cs">
-      <DependentUpon>AdminMemberManagement.aspx</DependentUpon>
+    <Compile Include="AdminStudentManagement.aspx.cs">
+      <DependentUpon>AdminStudentManagement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AdminMemberManagement.aspx.designer.cs">
-      <DependentUpon>AdminMemberManagement.aspx</DependentUpon>
+    <Compile Include="AdminStudentManagement.aspx.designer.cs">
+      <DependentUpon>AdminStudentManagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminPublisherManagement.aspx.cs">
       <DependentUpon>AdminPublisherManagement.aspx</DependentUpon>
@@ -1909,19 +1909,19 @@
     <Compile Include="StudentLogin.aspx.designer.cs">
       <DependentUpon>StudentLogin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UserProfile.aspx.cs">
-      <DependentUpon>UserProfile.aspx</DependentUpon>
+    <Compile Include="StudentProfile.aspx.cs">
+      <DependentUpon>StudentProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UserProfile.aspx.designer.cs">
-      <DependentUpon>UserProfile.aspx</DependentUpon>
+    <Compile Include="StudentProfile.aspx.designer.cs">
+      <DependentUpon>StudentProfile.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UserSignUp.aspx.cs">
-      <DependentUpon>UserSignUp.aspx</DependentUpon>
+    <Compile Include="StudentSignUp.aspx.cs">
+      <DependentUpon>StudentSignUp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UserSignUp.aspx.designer.cs">
-      <DependentUpon>UserSignUp.aspx</DependentUpon>
+    <Compile Include="StudentSignUp.aspx.designer.cs">
+      <DependentUpon>StudentSignUp.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

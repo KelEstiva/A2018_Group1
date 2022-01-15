@@ -33,9 +33,9 @@
 
                         <div class="row">
                             <div class="col">
-                                <label>Admin ID</label>
+                                <label>Username</label>
                                 <div class="form-group">
-                                    <asp:textbox CssClass="form-control" ID="textbox1" runat="server" placeholder="Admin ID"></asp:textbox>
+                                    <asp:textbox CssClass="form-control" ID="textbox1" runat="server" placeholder="Username"></asp:textbox>
                                 </div>
 
                                 <label>Password</label>

@@ -22,6 +22,8 @@
     <script src="bootstrap/js/popper.min.js"></script>
     <%--bootstrap js--%>
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <%--Datatables js--%>
+    <script src="datatables/js/jquery.dataTables.min.js"></script>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -102,11 +104,9 @@
                             &nbsp;
                             <asp:LinkButton class="footerlinks" ID="LinkButton9" runat="server" OnClick="LinkButton9_Click" Visible="False">Book Issuing</asp:LinkButton>
                             &nbsp;
-                             <asp:LinkButton class="footerlinks" ID="LinkButton10" runat="server" OnClick="LinkButton10_Click" Visible="False">Member Management</asp:LinkButton>
+                             <asp:LinkButton class="footerlinks" ID="LinkButton10" runat="server" OnClick="LinkButton10_Click" Visible="False">Student Management</asp:LinkButton>
                         </p>
-
                     </div>
-
                 </div>
             </div>
             <div id="footer2" class="container-fluid">

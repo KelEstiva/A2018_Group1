@@ -37,12 +37,17 @@ namespace OnlineLibraryManagementSystem
                 {
                     while (dr.Read())
                     {
-                        Response.Write("<script>alert('"+dr.GetValue(7).ToString()+"');</script>");
+                        Response.Write("<script>alert('Login Successful.');</script>");
+                        Session["username"] = dr.GetValue(7).ToString();
+                        Session["fullname"] = dr.GetValue(0).ToString();
+                        Session["role"] = "student";
+                        Session["status"] = dr.GetValue(10).ToString();
                     }
+                    Response.Redirect("HomePage.aspx");
                 }
                 else
                 {
-                    Response.Write("<script>alert('Invalid Credentials');</script>");
+                    Response.Write("<script>alert('Invalid Credentials!');</script>");
                 }
             }
             catch (Exception ex)
@@ -51,7 +56,6 @@ namespace OnlineLibraryManagementSystem
             }
 
         }
-
 
     }
 }

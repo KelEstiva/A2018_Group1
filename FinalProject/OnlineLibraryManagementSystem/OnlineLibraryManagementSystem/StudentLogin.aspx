@@ -33,9 +33,9 @@
 
                         <div class="row">
                             <div class="col">
-                                <label>Student ID</label>
+                                <label>Username</label>
                                 <div class="form-group">
-                                    <asp:textbox CssClass="form-control" ID="textbox1" runat="server" placeholder="Student ID" TextMode="Number"></asp:textbox>
+                                    <asp:textbox CssClass="form-control" ID="textbox1" runat="server" placeholder="Username" TextMode="Number"></asp:textbox>
                                 </div>
 
                                 <label>Password</label>
@@ -49,7 +49,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <a href="SignUp.aspx">
+                                    <a href="StudentSignUp.aspx">
                                     <input class="btn btn-info btn-block btn-lg" id="Button2" type="button" value="Sign Up" />
                                     </a>
                                 </div>

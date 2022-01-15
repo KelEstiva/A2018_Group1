@@ -121,22 +121,13 @@ namespace OnlineLibraryManagementSystem {
         protected global::System.Web.UI.WebControls.TextBox textbox6;
         
         /// <summary>
-        /// textbox14 control.
+        /// textbox8 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textbox14;
-        
-        /// <summary>
-        /// textbox15 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textbox15;
+        protected global::System.Web.UI.WebControls.TextBox textbox8;
         
         /// <summary>
         /// textbox11 control.

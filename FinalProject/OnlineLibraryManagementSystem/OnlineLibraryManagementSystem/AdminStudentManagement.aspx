@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="AdminMemberManagement.aspx.cs" Inherits="OnlineLibraryManagementSystem.AdminMemberManagement" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="AdminStudentManagement.aspx.cs" Inherits="OnlineLibraryManagementSystem.AdminMemberManagement" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -12,7 +12,7 @@
                         <div class="row">
                             <div class="col">
                                 <center>
-                                    <h4>Member Details</h4>
+                                    <h4>Student Details</h4>
                                 </center>
                             </div>
                         </div>
@@ -34,10 +34,10 @@
                          <div class="row">
 
                              <div class="col-md-5">
-                                 <label>Member ID</label>
+                                 <label>Student ID</label>
                                 <div class="form-group">
                                     <div class="input-group">
-                                    <asp:textbox CssClass="form-control mr-1" ID="textbox7" runat="server" placeholder="Member ID"></asp:textbox>
+                                    <asp:textbox CssClass="form-control mr-1" ID="textbox7" runat="server" placeholder="Student ID"></asp:textbox>
                                     <asp:LinkButton Class="btn btn-primary" ID="LinkButton4" Text="Go" runat="server"></asp:LinkButton>
                                 </div>
                               </div>
@@ -97,36 +97,24 @@
 
                         <div class="row">
 
-                             <div class="col-md-6">
+                             <div class="col-md-4">
                                  <label>Gender</label>
                                 <div class="form-group">
                                     <asp:textbox CssClass="form-control" ID="textbox5" runat="server" placeholder="Gender" ReadOnly="True"></asp:textbox>
                                 </div>
                             </div>
 
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                  <label>Course</label>
                                 <div class="form-group">
                                     <asp:textbox CssClass="form-control" ID="textbox6" runat="server" placeholder="Course" ReadOnly="True"></asp:textbox>
                                 </div>
                             </div>
 
-                        </div>
-
-                        <div class="row">
-
-
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                  <label>Year</label>
                                 <div class="form-group">
-                                    <asp:textbox CssClass="form-control" ID="textbox14" runat="server" placeholder="Year" ReadOnly="True"></asp:textbox>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                 <label>Student ID</label>
-                                <div class="form-group">
-                                    <asp:textbox CssClass="form-control" ID="textbox15" runat="server" placeholder="Student ID" ReadOnly="True"></asp:textbox>
+                                    <asp:textbox CssClass="form-control" ID="textbox8" runat="server" placeholder="Year" ReadOnly="True"></asp:textbox>
                                 </div>
                             </div>
 
@@ -159,7 +147,7 @@
                         <div class="row">
                             <div class="col">
                                 <center>
-                                    <h4>Member List</h4>
+                                    <h4>Student List</h4>
                                 </center>
                             </div>
                         </div>
