@@ -33,9 +33,9 @@
 
                          <div class="row">
                             <div class="col-md-6">
-                                 <label>Full Name</label>
+                                 <label>Student Name</label>
                                 <div class="form-group">
-                                    <asp:textbox CssClass="form-control" ID="textbox1" runat="server" placeholder="Full Name"></asp:textbox>
+                                    <asp:textbox CssClass="form-control" ID="textbox1" runat="server" placeholder="Student Name"></asp:textbox>
                                 </div>
                             </div>
 
@@ -49,9 +49,9 @@
 
                         <div class="row">
                             <div class="col-md-6">
-                                 <label>Contact Number</label>
+                                 <label>Contact No.</label>
                                 <div class="form-group">
-                                    <asp:textbox CssClass="form-control" ID="textbox3" runat="server" placeholder="Contact Number" TextMode="Number"></asp:textbox>
+                                    <asp:textbox CssClass="form-control" ID="textbox3" runat="server" placeholder="Contact No." TextMode="Number"></asp:textbox>
                                 </div>
                             </div>
 
@@ -64,7 +64,6 @@
                         </div>
 
                          <div class="row">
-
                              <div class="col-md-4">
                                  <label>Gender</label>
                                 <div class="form-group">
@@ -92,7 +91,7 @@
                             </div>
 
                              <div class="col-md-4">
-                                 <label>Year</label>
+                                 <label>Year Level</label>
                                 <div class="form-group">
                                     <asp:DropDownList CssClass="form-control" ID="DropDownList2" runat="server">
                                         <asp:ListItem Text="Select" value="select"/>
@@ -107,9 +106,9 @@
 
                         <div class="row">
                             <div class="col">
-                                 <label>Full Address</label>
+                                 <label>Permanent Address</label>
                                 <div class="form-group">
-                                    <asp:textbox CssClass="form-control" ID="textbox5" runat="server" placeholder="Full Address" TextMode="MultiLine" Rows="2"></asp:textbox>
+                                    <asp:textbox CssClass="form-control" ID="textbox5" runat="server" placeholder="Permanent Address" TextMode="MultiLine" Rows="2"></asp:textbox>
                                 </div>
                             </div>
                         </div>
@@ -117,7 +116,7 @@
                         <div class="row">
                             <div class="col">
                                 <center>
-                                <span class="badge badge-pill badge-info">Login Credentials</span>
+                                <span class="badge badge-pill badge-info">Student Login Credentials</span>
                                     </center>
                             </div>
                         </div>
