@@ -1,15 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="AdminAuthorManagement.aspx.cs" Inherits="OnlineLibraryManagementSystem.AdminAuthorManagement" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-
     <script type="text/javascript">
       $(document).ready(function () {
           $(".table").prepend($("<thead></thead>").append($(this).find("tr:first"))).dataTable();
       });
    </script>
-
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
      <div class="container-fluid">
         <div class="row">
             <div class="col-md-5">
@@ -101,8 +98,8 @@
                             <div class="col">
                                 <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="author_id" DataSourceID="SqlDataSource1">
                                     <Columns>
-                                        <asp:BoundField DataField="author_id" HeaderText="author_id" ReadOnly="True" SortExpression="author_id" />
-                                        <asp:BoundField DataField="author_name" HeaderText="author_name" SortExpression="author_name" />
+                                        <asp:BoundField DataField="author_id" HeaderText="ID" ReadOnly="True" SortExpression="author_id" />
+                                        <asp:BoundField DataField="author_name" HeaderText="Name" SortExpression="author_name" />
                                     </Columns>
                                 </asp:GridView>
                             </div>

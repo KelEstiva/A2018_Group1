@@ -29,7 +29,6 @@ namespace OnlineLibraryManagementSystem
             {
                 signUpNewStudent();
             }
-
         }
 
         bool checkStudentExists()

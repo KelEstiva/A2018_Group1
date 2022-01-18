@@ -25,31 +25,55 @@ namespace OnlineLibraryManagementSystem
         //Activate Button
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
-            updateStudentStatusByID("Activated");
-            getStudentByID();
+            if (textbox7.Text.Trim().Equals(""))
+            {
+                Response.Write("<script>alert('Please enter Student ID.');</script>");
+            }
+            else
+            {
+                updateStudentStatusByID("Activated");
+            }
         }
         //Pending Button
         protected void LinkButton2_Click(object sender, EventArgs e)
         {
-            updateStudentStatusByID("Pending");
-            getStudentByID();
+            if (textbox7.Text.Trim().Equals(""))
+            {
+                Response.Write("<script>alert('Please enter Student ID.');</script>");
+            }
+            else
+            {
+                updateStudentStatusByID("Pending");
+            }
         }
         //DeActivate Button
         protected void LinkButton3_Click(object sender, EventArgs e)
         {
-            updateStudentStatusByID("Deactivated");
-            getStudentByID();
+            if (textbox7.Text.Trim().Equals(""))
+            {
+                Response.Write("<script>alert('Please enter Student ID.');</script>");
+            }
+            else
+            {
+                updateStudentStatusByID("Deactivated");
+            }
         }
         //Delete Button
         protected void Button5_Click(object sender, EventArgs e)
         {
             deleteStudentByID();
         }
+        //Clear Form Button
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            clearForm();
+        }
+
         void deleteStudentByID()
         {
             if (textbox7.Text.Trim().Equals(""))
             {
-                Response.Write("<script>alert('Please enter Student ID..');</script>");
+                Response.Write("<script>alert('Please enter Student ID.');</script>");
             }
             else
             {
@@ -138,6 +162,15 @@ namespace OnlineLibraryManagementSystem
                     }
                     SqlCommand cmd = new SqlCommand("UPDATE student_master_tbl SET account_status='" + status + "' WHERE student_id= '" + textbox7.Text.Trim() + "'", con);
                     cmd.ExecuteNonQuery();
+                    cmd = new SqlCommand("SELECT * from student_master_tbl where student_id='" + textbox7.Text.Trim() + "'", con);
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            textbox10.Text = dr.GetValue(10).ToString();
+                        }
+                    }
                     con.Close();
                     GridView1.DataBind();
                     Response.Write("<script>alert('Student Account Status Updated Successfully.');</script>");

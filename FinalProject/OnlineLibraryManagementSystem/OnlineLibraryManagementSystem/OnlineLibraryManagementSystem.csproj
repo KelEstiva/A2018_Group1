@@ -97,6 +97,7 @@
     <Content Include="AdminBookInventory.aspx" />
     <Content Include="AdminBookIssuingPage.aspx" />
     <Content Include="AdminStudentManagement.aspx" />
+    <Content Include="book_inventory\books1.png" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -72,7 +72,7 @@
                             <div class="col-md-12">
                                  <label>Stdudent Name</label>
                                 <div class="form-group">
-                                    <asp:textbox CssClass="form-control" ID="textbox12" runat="server" placeholder="Student Name" ReadOnly="True"></asp:textbox>
+                                    <asp:textbox CssClass="form-control" ID="textbox12" runat="server" placeholder="Full Name" ReadOnly="True"></asp:textbox>
                                 </div>
                             </div>
                             </div>
@@ -138,8 +138,11 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-12 mx-auto">
-                        <asp:Button Class="btn btn-lg btn-block btn-danger" ID="Button5" Text="Delete User Permanently" runat="server" OnClick="Button5_Click"></asp:Button>
+                            <div class="col-6 mx-auto">
+                        <asp:Button Class="btn btn-lg btn-block btn-danger" ID="Button5" Text="Delete" runat="server" OnClick="Button5_Click"></asp:Button>
+                            </div>
+                            <div class="col-6 mx-auto">
+                        <asp:Button Class="btn btn-lg btn-block btn-success" ID="Button1" Text="Clear" runat="server" OnClick="Button1_Click"></asp:Button>
                             </div>
                             </div>
                     </div>
