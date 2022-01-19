@@ -63,7 +63,6 @@
                             </div>
                         </div>
                         <div class="row">
-
                             <div class="col-md-6">
                                  <label>Language</label>
                                 <div class="form-group">
@@ -78,9 +77,7 @@
 
                                     </asp:DropDownList>
                                 </div>
-
                             </div>
-
                             <div class="col-md-6">
                                  <label>Author Name</label>
                                 <div class="form-group">
@@ -88,33 +85,27 @@
 
                                     </asp:DropDownList>
                                 </div>
-
                                 <label>Publish Date</label>
                                 <div class="form-group">
                                     <asp:textbox CssClass="form-control" ID="textbox2" runat="server" placeholder="Date" TextMode="Date"></asp:textbox>
                                 </div>
-
                             </div>
-
                             </div>
                         <div class="row">
-
                             <div class="col-md-6">
                                  <label>Edition</label>
                                 <div class="form-group">
                                      <div class="input-group">
                                     <asp:textbox CssClass="form-control mr-1" ID="textbox1" runat="server" placeholder="Edition"></asp:textbox>
                                 </div>
-                                </div>
-
-                                <label>Actual Stock</label>
-                                <div class="form-group">
-                                     <div class="input-group">
-                                    <asp:textbox CssClass="form-control mr-1" ID="textbox8" runat="server" placeholder="Actual Stock" TextMode="Number"></asp:textbox>
-                                </div>
+                                 <label>Pages</label>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                    <asp:textbox CssClass="form-control" ID="textbox9" runat="server" placeholder="Pages" TextMode="Number"></asp:textbox>
+                                 </div>
+                                 </div>
                                 </div>
                             </div>
-
                             <div class="col-md-6">
                                  <label>Genre</label>
                                 <div class="form-group">
@@ -150,42 +141,8 @@
                                     </asp:ListBox>
                                 </div>
                             </div>
-
                             </div>
-                        <div class="row">
-
-                            <div class="col-md-6">
-                                 <label>Book Cost (Per Unit)</label>
-                                <div class="form-group">
-                                    <asp:textbox CssClass="form-control" ID="textbox4" runat="server" placeholder="Book Cost (Per Unit)" TextMode="Number"></asp:textbox>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                 <label>Pages</label>
-                                <div class="form-group">
-                                    <asp:textbox CssClass="form-control" ID="textbox9" runat="server" placeholder="Pages" TextMode="Number"></asp:textbox>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="row">
-
-                            <div class="col-md-6">
-                                 <label>Current Stock</label>
-                                <div class="form-group">
-                                    <asp:textbox CssClass="form-control" ID="textbox5" runat="server" placeholder="Current Stock" ReadOnly="True" TextMode="Number"></asp:textbox>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                 <label>Issued Books</label>
-                                <div class="form-group">
-                                    <asp:textbox CssClass="form-control" ID="textbox10" runat="server" placeholder="Issued Books"  ReadOnly="True" TextMode="Number"></asp:textbox>
-                                </div>
-                            </div>
-
-                        </div>
+                        
                         <div class="row">
                             <div class="col-12">
                                  <label>Book Description</label>
@@ -199,12 +156,10 @@
                                 <label>Book Image</label>
                                 <asp:FileUpload onchange="readURL(this);" Class="form-control" ID="FileUpload3" runat="server" />
                             </div>
-
                             <div class="col-md-6">
                                 <label>Upload PDF File</label>
                                 <asp:FileUpload Class="form-control" ID="FileUpload4" runat="server" />
                             </div>
-
                         </div>
                         <br>
                         <div class="row">
@@ -224,10 +179,8 @@
                <a href="HomePage.aspx"><< Back to HomePage</a> <br> <br>  
             </div>
             <div class="col-md-7">
-
                 <div class="card">
                     <div class="card-body">
-
                         <div class="row">
                             <div class="col">
                                 <center>
@@ -235,13 +188,11 @@
                                 </center>
                             </div>
                         </div>
-
                         <div class="row">
                             <div class="col">
                                 <hr>
                             </div>
                         </div>
-
                         <div class="row">
                             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:olmsConnectionString %>" SelectCommand="SELECT * FROM [book_master_tbl]"></asp:SqlDataSource>
                             <div class="col">
@@ -293,21 +244,8 @@
                                                             </div>
                                                             <div class="row">
                                                                 <div class="col-12">
-                                                                    Cost -
-                                                                    <asp:Label ID="Label9" runat="server" Font-Bold="True" Text='<%# Eval("book_cost") %>'></asp:Label>
-                                                                    &nbsp;| Actual Stock -
-                                                                    <asp:Label ID="Label10" runat="server" Font-Bold="True" Text='<%# Eval("actual_stock") %>'></asp:Label>
-                                                                    &nbsp;| Available -
-                                                                    <asp:Label ID="Label11" runat="server" Font-Bold="True" Text='<%# Eval("current_stock") %>'></asp:Label>
-
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col-12">
-
                                                                     Description -
                                                                     <asp:Label ID="Label12" runat="server" Font-Bold="True" Text='<%# Eval("book_description") %>'></asp:Label>
-
                                                                 </div>
                                                             </div>
                                                         </div>

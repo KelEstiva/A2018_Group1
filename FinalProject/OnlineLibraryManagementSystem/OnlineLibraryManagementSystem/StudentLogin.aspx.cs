@@ -22,7 +22,22 @@ namespace OnlineLibraryManagementSystem
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-
+            if (textbox1.Text.Equals(""))
+            {
+                Response.Write("<script>alert('Please Input Student ID!');</script>");
+            }
+            else if(textbox2.Text.Equals(""))
+            {
+                Response.Write("<script>alert('Please Input Password!');</script>");
+            }
+            else
+            {
+                studentlogin();
+            }
+        }
+        //Student Login Function
+        void studentlogin()
+        {
             try
             {
                 SqlConnection con = new SqlConnection(strcon);
@@ -30,20 +45,32 @@ namespace OnlineLibraryManagementSystem
                 {
                     con.Open();
                 }
-                SqlCommand cmd = new SqlCommand("SELECT * from student_master_tbl where student_id='"+textbox1.Text.Trim()+"' AND password='"+textbox2.Text.Trim()+"'",con );
+                SqlCommand cmd = new SqlCommand("SELECT * from student_master_tbl where student_id='" + textbox1.Text.Trim() + "' AND password='" + textbox2.Text.Trim() + "'", con);
 
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.HasRows)
                 {
                     while (dr.Read())
                     {
-                        Response.Write("<script>alert('Login Successful.');</script>");
+                       // Response.Write("<script>alert('Login Successful.');</script>");
                         Session["username"] = dr.GetValue(7).ToString();
                         Session["fullname"] = dr.GetValue(0).ToString();
                         Session["role"] = "student";
                         Session["status"] = dr.GetValue(10).ToString();
                     }
-                    Response.Redirect("HomePage.aspx");
+                    if (Session["status"].Equals("Activated"))
+                    {
+                        Response.Write("<script>alert('Login Successful.');</script>");
+                        Response.Redirect("HomePage.aspx");
+                    }
+                    else if (Session["status"].Equals("Pending"))
+                    {
+                        Response.Write("<script>alert('Your account status is Pending');</script>");
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('Your account status is Deactivated');</script>");
+                    }
                 }
                 else
                 {
@@ -54,8 +81,6 @@ namespace OnlineLibraryManagementSystem
             {
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
-
         }
-
     }
 }

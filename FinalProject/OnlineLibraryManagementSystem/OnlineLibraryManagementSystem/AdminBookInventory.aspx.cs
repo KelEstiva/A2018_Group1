@@ -111,27 +111,7 @@ namespace OnlineLibraryManagementSystem
             {
                 try
                 {
-                    int actual_stock = Convert.ToInt32(textbox8.Text.Trim());
-                    int current_stock = Convert.ToInt32(textbox5.Text.Trim());
-
-                    if (global_actual_stock==actual_stock)
-                    {
-                        
-                    }
-                    else
-                    {
-                        if (actual_stock<global_issued_books)
-                        {
-                            Response.Write("<script>alert('Actual Stock Cannot Be Less Than The Issued Books!')</script>");
-                            return;
-                        }
-                        else
-                        {
-                            current_stock = actual_stock - global_issued_books;
-                            textbox10.Text = "" + current_stock;
-                        }
-                    }
-
+                    
                     string genres = "";
                     foreach (int i in ListBox1.GetSelectedIndices())
                     {
@@ -157,20 +137,17 @@ namespace OnlineLibraryManagementSystem
                     {
                         con.Open();
                     }
-                    SqlCommand cmd = new SqlCommand("UPDATE book_master_tbl SET book_name=@book_name, genre=@genre, author_name=@author_name, publisher_name=@publisher_name, publish_date=@publish_date, language=@language, edition=@edition, book_cost=@book_cost, no_of_pages=@no_of_pages, book_description=@book_description, actual_stock=@actual_stock, current_stock=current_stock,book_img_link=@book_img_link'" + "' WHERE book_id= '" + textbox7.Text.Trim() + "'", con);
+                    SqlCommand cmd = new SqlCommand("UPDATE book_master_tbl SET book_name=@book_name,genre=@genre,author_name=@author_name,publisher_name=@publisher_name,publish_date=@publish_date,language=@language,edition=@edition,no_of_pages=@no_of_pages,book_description=@book_description,book_img_link=@book_img_link WHERE book_id= '" + textbox7.Text.Trim() + "'", con);
 
-                    cmd.Parameters.AddWithValue("@book_name", textbox3.Text.Trim());
+                    cmd.Parameters.AddWithValue("@book_name", textbox3.Text);
                     cmd.Parameters.AddWithValue("@language", DropDownList1.SelectedItem.Value);
                     cmd.Parameters.AddWithValue("@publisher_name", DropDownList2.SelectedItem.Value);
                     cmd.Parameters.AddWithValue("@author_name", DropDownList3.SelectedItem.Value);
-                    cmd.Parameters.AddWithValue("@publish_date", textbox2.Text.Trim());
-                    cmd.Parameters.AddWithValue("@edition", textbox1.Text.Trim());
-                    cmd.Parameters.AddWithValue("@actual_stock", actual_stock.ToString().Trim());
+                    cmd.Parameters.AddWithValue("@publish_date", textbox2.Text);
+                    cmd.Parameters.AddWithValue("@edition", textbox1.Text);
                     cmd.Parameters.AddWithValue("@genre", genres);
-                    cmd.Parameters.AddWithValue("@book_cost", textbox4.Text.Trim());
-                    cmd.Parameters.AddWithValue("@no_of_pages", textbox9.Text.Trim());
-                    cmd.Parameters.AddWithValue("@current_stock", current_stock.ToString().Trim());
-                    cmd.Parameters.AddWithValue("@book_description", textbox11.Text.Trim());
+                    cmd.Parameters.AddWithValue("@no_of_pages", textbox9.Text);
+                    cmd.Parameters.AddWithValue("@book_description", textbox11.Text);
                     cmd.Parameters.AddWithValue("@book_img_link", filepath);
 
                     cmd.ExecuteNonQuery();
@@ -206,17 +183,13 @@ namespace OnlineLibraryManagementSystem
                 if (dt.Rows.Count >= 1)
                 {
                     textbox3.Text = dt.Rows[0]["book_name"].ToString().Trim();
-                    DropDownList1.SelectedItem.Value = dt.Rows[0]["language"].ToString().Trim();
-                    DropDownList2.SelectedItem.Value = dt.Rows[0]["publisher_name"].ToString().Trim();
-                    DropDownList3.SelectedItem.Value = dt.Rows[0]["author_name"].ToString().Trim();
+                    DropDownList1.SelectedValue = dt.Rows[0]["language"].ToString();
+                    DropDownList2.SelectedValue = dt.Rows[0]["publisher_name"].ToString();
+                    DropDownList3.SelectedValue = dt.Rows[0]["author_name"].ToString();
                     textbox2.Text = dt.Rows[0]["publish_date"].ToString().Trim();
                     textbox1.Text = dt.Rows[0]["edition"].ToString().Trim();
-                    textbox8.Text = dt.Rows[0]["actual_stock"].ToString().Trim(); ;
-                    textbox4.Text = dt.Rows[0]["book_cost"].ToString().Trim();
                     textbox9.Text = dt.Rows[0]["no_of_pages"].ToString().Trim();
-                    textbox5.Text = dt.Rows[0]["current_stock"].ToString().Trim();
                     textbox11.Text = dt.Rows[0]["book_description"].ToString().Trim();
-                    textbox10.Text=""+ (Convert.ToInt32(dt.Rows[0]["actual_stock"].ToString()) - Convert.ToInt32(dt.Rows[0]["current_stock"].ToString()));
                     ListBox1.ClearSelection();
 
                     string[] genre = dt.Rows[0]["genre"].ToString().Trim().Split(',');
@@ -230,12 +203,7 @@ namespace OnlineLibraryManagementSystem
                             }
                         }
                     }
-
-                    global_actual_stock = Convert.ToInt32(dt.Rows[0]["actual_stock"].ToString().Trim());
-                    global_current_stock = Convert.ToInt32(dt.Rows[0]["current_stock"].ToString().Trim());
-                    global_issued_books = global_actual_stock - global_current_stock;
-                    global_filepath = dt.Rows[0]["book_img_link"].ToString().Trim();
-
+                    global_filepath = dt.Rows[0]["book_img_link"].ToString();
                 }
                 else
                 {
@@ -331,7 +299,7 @@ namespace OnlineLibraryManagementSystem
                 {
                     con.Open();
                 }
-                SqlCommand cmd = new SqlCommand("INSERT INTO book_master_tbl(book_id,book_name,genre,author_name,publisher_name,publish_date,language,edition,book_cost,no_of_pages,book_description,actual_stock,current_stock,book_img_link) values (@book_id,@book_name,@genre,@author_name,@publisher_name,@publish_date,@language,@edition,@book_cost,@no_of_pages,@book_description,@actual_stock,@current_stock,@book_img_link)", con);
+                SqlCommand cmd = new SqlCommand("INSERT INTO book_master_tbl(book_id,book_name,genre,author_name,publisher_name,publish_date,language,edition,no_of_pages,book_description,book_img_link) values (@book_id,@book_name,@genre,@author_name,@publisher_name,@publish_date,@language,@edition,@no_of_pages,@book_description,@book_img_link)", con);
                 cmd.Parameters.AddWithValue("@book_id", textbox7.Text.Trim());
                 cmd.Parameters.AddWithValue("@book_name", textbox3.Text.Trim());
                 cmd.Parameters.AddWithValue("@language", DropDownList1.SelectedItem.Value);
@@ -339,11 +307,8 @@ namespace OnlineLibraryManagementSystem
                 cmd.Parameters.AddWithValue("@author_name", DropDownList3.SelectedItem.Value);
                 cmd.Parameters.AddWithValue("@publish_date", textbox2.Text.Trim());
                 cmd.Parameters.AddWithValue("@edition", textbox1.Text.Trim());
-                cmd.Parameters.AddWithValue("@actual_stock", textbox8.Text.Trim());
                 cmd.Parameters.AddWithValue("@genre", genres);
-                cmd.Parameters.AddWithValue("@book_cost", textbox4.Text.Trim());
                 cmd.Parameters.AddWithValue("@no_of_pages", textbox9.Text.Trim());
-                cmd.Parameters.AddWithValue("@current_stock", textbox8.Text.Trim());
                 cmd.Parameters.AddWithValue("@book_description", textbox11.Text.Trim());
                 cmd.Parameters.AddWithValue("@book_img_link", filepath);
 

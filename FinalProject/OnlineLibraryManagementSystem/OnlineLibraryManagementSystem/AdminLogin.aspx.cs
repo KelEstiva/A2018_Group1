@@ -22,6 +22,22 @@ namespace OnlineLibraryManagementSystem
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            if (textbox1.Text.Equals(""))
+            {
+                Response.Write("<script>alert('Please Input Username!');</script>");
+            }
+            else if (textbox2.Text.Equals(""))
+            {
+                Response.Write("<script>alert('Please Input Password!');</script>");
+            }
+            else
+            {
+                adminLogin();
+            }
+        }
+        //login function
+        void adminLogin()
+        {
             try
             {
                 SqlConnection con = new SqlConnection(strcon);
@@ -30,7 +46,6 @@ namespace OnlineLibraryManagementSystem
                     con.Open();
                 }
                 SqlCommand cmd = new SqlCommand("SELECT * from admin_login_tbl where username='" + textbox1.Text.Trim() + "' AND password='" + textbox2.Text.Trim() + "'", con);
-
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.HasRows)
                 {
@@ -50,9 +65,8 @@ namespace OnlineLibraryManagementSystem
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('"+ex.Message+"');</script>");
+                Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
-
         }
     }
 }

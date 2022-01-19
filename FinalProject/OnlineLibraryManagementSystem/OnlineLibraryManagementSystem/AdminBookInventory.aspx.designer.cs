@@ -85,33 +85,6 @@ namespace OnlineLibraryManagementSystem {
         protected global::System.Web.UI.WebControls.TextBox textbox1;
         
         /// <summary>
-        /// textbox8 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textbox8;
-        
-        /// <summary>
-        /// ListBox1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox ListBox1;
-        
-        /// <summary>
-        /// textbox4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textbox4;
-        
-        /// <summary>
         /// textbox9 control.
         /// </summary>
         /// <remarks>
@@ -121,22 +94,13 @@ namespace OnlineLibraryManagementSystem {
         protected global::System.Web.UI.WebControls.TextBox textbox9;
         
         /// <summary>
-        /// textbox5 control.
+        /// ListBox1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textbox5;
-        
-        /// <summary>
-        /// textbox10 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textbox10;
+        protected global::System.Web.UI.WebControls.ListBox ListBox1;
         
         /// <summary>
         /// textbox11 control.

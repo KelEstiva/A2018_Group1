@@ -17,6 +17,7 @@ namespace OnlineLibraryManagementSystem
                     LinkButton1.Visible = true; //student login button link
                     LinkButton2.Visible = true; //student sign up button link
 
+                    LinkButton4.Visible = false; //view books button link
                     LinkButton3.Visible = false; //logout button link
                     LinkButton7.Visible = false; //hello student button link 
 
@@ -32,6 +33,7 @@ namespace OnlineLibraryManagementSystem
                 {
                     LinkButton1.Visible = false; //student login button link
                     LinkButton2.Visible = false; //student sign up button link
+                    LinkButton4.Visible = true; //view books button link
 
                     LinkButton3.Visible = true; //logout button link
                     LinkButton7.Visible = true; //hello student button link 
@@ -49,7 +51,7 @@ namespace OnlineLibraryManagementSystem
                 {
                     LinkButton1.Visible = false; //student login button link
                     LinkButton2.Visible = false; //student sign up button link
-
+                    LinkButton4.Visible = true; //view books button link
                     LinkButton3.Visible = true; //logout button link
                     LinkButton7.Visible = true; //hello student button link 
                     LinkButton7.Text = "Hello! " + Session["fullname"].ToString();
@@ -124,6 +126,7 @@ namespace OnlineLibraryManagementSystem
 
             LinkButton1.Visible = true; //student login button link
             LinkButton2.Visible = true; //student sign up button link
+            LinkButton4.Visible = false; //view books button link
 
             LinkButton3.Visible = false; //logout button link
             LinkButton7.Visible = false; //hello student button link 
