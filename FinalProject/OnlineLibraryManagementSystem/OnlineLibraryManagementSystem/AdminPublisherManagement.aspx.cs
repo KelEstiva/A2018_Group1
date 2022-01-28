@@ -95,7 +95,6 @@ namespace OnlineLibraryManagementSystem
             }
         }
 
-
         bool checkIfPublisherExists()
         {
             try

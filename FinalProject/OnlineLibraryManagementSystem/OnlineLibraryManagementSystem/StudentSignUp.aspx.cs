@@ -91,6 +91,7 @@ namespace OnlineLibraryManagementSystem
                 con.Close();
 
                 Response.Write("<script>alert('Sign Up Successfull. Go to Student Login to Login');</script>");
+                Response.Redirect("StudentLogin.aspx");
 
             }
             catch (Exception ex)

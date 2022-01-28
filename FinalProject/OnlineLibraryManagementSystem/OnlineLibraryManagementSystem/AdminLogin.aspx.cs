@@ -17,9 +17,11 @@ namespace OnlineLibraryManagementSystem
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(Session["role"]!=null)
+            {
+                Response.Redirect("HomePage.aspx");
+            }
         }
-
         protected void Button1_Click(object sender, EventArgs e)
         {
             if (textbox1.Text.Equals(""))
@@ -33,6 +35,7 @@ namespace OnlineLibraryManagementSystem
             else
             {
                 adminLogin();
+
             }
         }
         //login function

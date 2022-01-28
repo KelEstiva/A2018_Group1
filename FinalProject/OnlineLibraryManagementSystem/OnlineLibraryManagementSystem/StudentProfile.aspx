@@ -3,9 +3,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-8 mx-auto">
                 <div class="card">
                     <div class="card-body">
 
@@ -20,9 +20,9 @@
                         <div class="row">
                             <div class="col">
                                 <center>
-                                    <h4>Your Profile</h4>
+                                    <h4>Student Profile</h4>
                                     <span>Account Status - </span>
-                                     <asp:Label CssClass="badge badge-pill badge-info" ID="Label1" runat="server" Text="Your Status"></asp:Label>
+                                     <asp:Label class="badge badge-pill badge-info" ID="Label1" runat="server" Text="Your Status"></asp:Label>
                                 </center>
                             </div>
                         </div>
@@ -66,8 +66,7 @@
                         </div>
 
                          <div class="row">
-
-                             <div class="col-md-6">
+                             <div class="col-md-4">
                                  <label>Gender</label>
                                 <div class="form-group">
                                     <asp:DropDownList CssClass="form-control" ID="DropDownList3" runat="server">
@@ -77,8 +76,7 @@
                                     </asp:DropDownList>
                                 </div>
                             </div>
-
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                  <label>Course</label>
                                 <div class="form-group">
                                     <asp:DropDownList CssClass="form-control" ID="DropDownList1" runat="server">
@@ -92,14 +90,10 @@
                                     </asp:DropDownList>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row">
-
-                             <div class="col-md-6">
-                                 <label>Year</label>
+                             <div class="col-md-4">
+                                 <label>Year Level</label>
                                 <div class="form-group">
-                                    <asp:DropDownList CssClass="form-control" ID="DropDownList6" runat="server">
+                                    <asp:DropDownList CssClass="form-control" ID="DropDownList2" runat="server">
                                         <asp:ListItem Text="Select" value="select"/>
                                         <asp:ListItem Text="1st Year" value="1st Year"/>
                                         <asp:ListItem Text="2nd Year" value="2nd Year"/>
@@ -109,12 +103,6 @@
                                 </div>
                             </div>
 
-                              <div class="col-md-6">
-                                 <label>Student ID</label>
-                                <div class="form-group">
-                                    <asp:textbox CssClass="form-control" ID="textbox10" runat="server" placeholder="Student ID" TextMode="Number"></asp:textbox>
-                                </div>
-                            </div>
                         </div>
 
                         <div class="row">
@@ -129,23 +117,23 @@
                         <div class="row">
                             <div class="col">
                                 <center>
-                                <span class="badge badge-pill badge-info">Login Credentials</span>
+                                <span class="badge badge-pill badge-info">Student Login Credentials</span>
                                     </center>
                             </div>
                         </div>
 
                          <div class="row">
                             <div class="col-md-4">
-                                 <label>User ID</label>
+                                 <label>Student ID</label>
                                 <div class="form-group">
-                                    <asp:textbox class="form-control" ID="textbox6" runat="server" placeholder="User ID" ReadOnly="True"></asp:textbox>
+                                    <asp:textbox class="form-control" ID="textbox6" runat="server" placeholder="Student ID" TextMode="Number" ReadOnly="True"></asp:textbox>
                                 </div>
                             </div>
 
                              <div class="col-md-4">
                                  <label>Old Password</label>
                                 <div class="form-group">
-                                    <asp:textbox class="form-control" ID="textbox8" runat="server" placeholder="Password" TextMode="Password" ReadOnly="True"></asp:textbox>
+                                    <asp:textbox class="form-control" ID="textbox8" runat="server" placeholder="Password" ReadOnly="True"></asp:textbox>
                                 </div>
                             </div>
 
@@ -161,55 +149,18 @@
                             <div class="col-12 mx-auto">
                                 <center>
                                 <div class="form-group">
-                                    <asp:button class="btn btn-primary btn-block btn-lg" ID="Button1" runat="server" text="Update" />
+                                    <asp:button class="btn btn-primary btn-block btn-lg" ID="Button1" runat="server" text="Update" OnClick="Button1_Click" />
                                 </div>
                                 </center>
                             </div>
                         </div>
                     </div>
                   </div>
-                <br>
-               <a href="HomePage.aspx"><< Back to HomePage</a> <br> <br>
-            </div>
-
-            <div class="col-md-7">
-
-                <div class="card">
-                    <div class="card-body">
-
-                        <div class="row">
-                            <div class="col">
-                                <center>
-                                    <img width="100px" src="imgs/books1.png" />
-                                </center>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col">
-                                <center>
-                                    <h4>Your Issued Books</h4>
-                                     <asp:Label CssClass="badge badge-pill badge-info" ID="Label2" runat="server" Text="Your Books Info"></asp:Label>
-                                </center>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col">
-                                <hr>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col">
-                                <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server"></asp:GridView>
-                            </div>
-                        </div>
-                        
-                   </div>
-               </div>
             </div>
         </div> 
     </div>
+    <br>
+    <center><a href="HomePage.aspx"><< Back to HomePage</a><span class="clearfix"></span></center>
+    <br>
 
 </asp:Content>

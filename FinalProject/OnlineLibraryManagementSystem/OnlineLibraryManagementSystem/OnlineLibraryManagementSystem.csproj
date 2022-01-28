@@ -95,7 +95,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminBookInventory.aspx" />
-    <Content Include="AdminBookIssuingPage.aspx" />
     <Content Include="AdminStudentManagement.aspx" />
     <Content Include="book_inventory\books1.png" />
     <Content Include="packages.config" />
@@ -1843,7 +1842,6 @@
     <Content Include="StudentSignUp.aspx" />
     <Content Include="ViewBooks.aspx" />
     <Content Include="Web.config" />
-    <Content Include="Default.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminAuthorManagement.aspx.cs">
@@ -1859,13 +1857,6 @@
     </Compile>
     <Compile Include="AdminBookInventory.aspx.designer.cs">
       <DependentUpon>AdminBookInventory.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AdminBookIssuingPage.aspx.cs">
-      <DependentUpon>AdminBookIssuingPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AdminBookIssuingPage.aspx.designer.cs">
-      <DependentUpon>AdminBookIssuingPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminLogin.aspx.cs">
       <DependentUpon>AdminLogin.aspx</DependentUpon>
@@ -1924,13 +1915,6 @@
     <Compile Include="StudentSignUp.aspx.designer.cs">
       <DependentUpon>StudentSignUp.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ViewBooks.aspx.cs">
       <DependentUpon>ViewBooks.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1939,7 +1923,9 @@
       <DependentUpon>ViewBooks.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="book_pdf\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

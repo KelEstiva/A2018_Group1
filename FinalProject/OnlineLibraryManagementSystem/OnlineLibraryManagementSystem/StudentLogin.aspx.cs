@@ -17,7 +17,10 @@ namespace OnlineLibraryManagementSystem
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["role"] != null)
+            {
+                Response.Redirect("HomePage.aspx");
+            }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -46,35 +49,34 @@ namespace OnlineLibraryManagementSystem
                     con.Open();
                 }
                 SqlCommand cmd = new SqlCommand("SELECT * from student_master_tbl where student_id='" + textbox1.Text.Trim() + "' AND password='" + textbox2.Text.Trim() + "'", con);
-
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.HasRows)
                 {
                     while (dr.Read())
                     {
-                       // Response.Write("<script>alert('Login Successful.');</script>");
                         Session["username"] = dr.GetValue(7).ToString();
                         Session["fullname"] = dr.GetValue(0).ToString();
                         Session["role"] = "student";
                         Session["status"] = dr.GetValue(10).ToString();
                     }
-                    if (Session["status"].Equals("Activated"))
-                    {
-                        Response.Write("<script>alert('Login Successful.');</script>");
-                        Response.Redirect("HomePage.aspx");
-                    }
-                    else if (Session["status"].Equals("Pending"))
-                    {
-                        Response.Write("<script>alert('Your account status is Pending');</script>");
-                    }
-                    else
-                    {
-                        Response.Write("<script>alert('Your account status is Deactivated');</script>");
-                    }
+                        if (Session["status"].Equals("Activated"))
+                        {
+                            Response.Redirect("HomePage.aspx");
+                        }
+                        else if (Session["status"].Equals("Pending"))
+                        {
+                            Response.Write("<script>alert('Your account status is Pending');</script>");
+                            Session.RemoveAll();
+                        }
+                        else if (Session["status"].Equals("Deactivated"))
+                        {
+                            Response.Write("<script>alert('Your account status is Deactivated');</script>");
+                            Session.RemoveAll();
+                        }
                 }
                 else
                 {
-                    Response.Write("<script>alert('Invalid Credentials!');</script>");
+                    Response.Write("<script>alert('Incorrect Username or Password!');</script>");
                 }
             }
             catch (Exception ex)

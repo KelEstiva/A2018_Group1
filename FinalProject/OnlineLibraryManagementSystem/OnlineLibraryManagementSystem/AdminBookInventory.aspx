@@ -41,8 +41,8 @@
                         <div class="row">
                             <div class="col">
                                 <hr>
-                            </div>
-                        </div>
+                           </div>
+                        </div> 
                         <div class="row">
                              <div class="col-md-4">
                                  <label>Book ID</label>
@@ -175,8 +175,7 @@
                             </div>
                     </div>
                   </div>
-                <br>
-               <a href="HomePage.aspx"><< Back to HomePage</a> <br> <br>  
+
             </div>
             <div class="col-md-7">
                 <div class="card">
@@ -191,8 +190,8 @@
                         <div class="row">
                             <div class="col">
                                 <hr>
-                            </div>
-                        </div>
+                           </div>
+                        </div> 
                         <div class="row">
                             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:olmsConnectionString %>" SelectCommand="SELECT * FROM [book_master_tbl]"></asp:SqlDataSource>
                             <div class="col">
@@ -216,8 +215,12 @@
                                                                 <div class="col-12">
                                                                     Author -
                                                                     <asp:Label ID="Label2" runat="server" Font-Bold="True" Text='<%# Eval("author_name") %>'></asp:Label>
-                                                                    &nbsp;| Language -
-                                                                    <asp:Label ID="Label7" runat="server" Font-Bold="True" Text='<%# Eval("language") %>'></asp:Label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-12">
+                                                                    Language -
+                                                                    <asp:Label ID="Label6" runat="server" Font-Bold="True" Text='<%# Eval("language") %>'></asp:Label>
                                                                 </div>
                                                             </div>
                                                             <div class="row">
@@ -230,16 +233,24 @@
                                                                 <div class="col-12">
                                                                     Publisher -
                                                                     <asp:Label ID="Label5" runat="server" Font-Bold="True" Text='<%# Eval("publisher_name") %>'></asp:Label>
-                                                                    &nbsp;| Publish Date -
-                                                                    <asp:Label ID="Label4" runat="server" Font-Bold="True" Text='<%# Eval("publish_date") %>'></asp:Label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-12">
+                                                                    Publish Date -
+                                                                    <asp:Label ID="Label7" runat="server" Font-Bold="True" Text='<%# Eval("publish_date") %>'></asp:Label>
                                                                 </div>
                                                             </div>
                                                             <div class="row">
                                                                 <div class="col-12">
                                                                     Pages -
                                                                     <asp:Label ID="Label15" runat="server" Font-Bold="True" Text='<%# Eval("no_of_pages") %>'></asp:Label>
-                                                                    &nbsp;|Edition -
-                                                                    <asp:Label ID="Label16" runat="server" Font-Bold="True" Text='<%# Eval("edition") %>'></asp:Label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-12">
+                                                                    Edition -
+                                                                    <asp:Label ID="Label4" runat="server" Font-Bold="True" Text='<%# Eval("edition") %>'></asp:Label>
                                                                 </div>
                                                             </div>
                                                             <div class="row">
@@ -265,4 +276,6 @@
             </div>
         </div> 
     </div>
+                <center><a href="HomePage.aspx"><< Back to HomePage</a><span class="clearfix"></span></center>
+                <br> 
 </asp:Content>

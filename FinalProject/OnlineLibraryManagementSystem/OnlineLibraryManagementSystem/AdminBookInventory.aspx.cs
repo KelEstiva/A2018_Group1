@@ -15,16 +15,31 @@ namespace OnlineLibraryManagementSystem
     {
         string strcon = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
 
-        static string global_filepath;
-        static int global_actual_stock, global_current_stock, global_issued_books;
+        static string global_filepath_img, global_filepath_pdf;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            try
             {
-                fillAuthorPublisherValues();
+                if (Session["role"].ToString() == "" || Session["role"] == null)
+                {
+                    Response.Write("<script>alert('Session Expired Login Again!');</script>");
+                    Response.Redirect("AdminLogin.aspx");
+                }
+                else
+                {
+                    if (!IsPostBack)
+                    {
+                        fillAuthorPublisherValues();
+                    }
+                    GridView1.DataBind();
+                }
             }
-            GridView1.DataBind();
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('Session Expired Login Again!');</script>");
+                Response.Redirect("AdminLogin.aspx");
+            }
         }
         //Go Button
         protected void Button3_Click(object sender, EventArgs e)
@@ -49,7 +64,7 @@ namespace OnlineLibraryManagementSystem
             {
                 if (checkIfBookExists())
                 {
-                    Response.Write("<script>alert('Book ID Already Exist!');</script>");
+                    Response.Write("<script>alert('Book ID or Book Name Already Exist!');</script>");
                 }
                 else
                 {
@@ -67,7 +82,7 @@ namespace OnlineLibraryManagementSystem
         {
             if (textbox7.Text.Trim().Equals(""))
             {
-                Response.Write("<script>alert('Please enter Student ID.');</script>");
+                Response.Write("<script>alert('Please Enter Book ID.');</script>");
             }
             else
             {
@@ -111,25 +126,38 @@ namespace OnlineLibraryManagementSystem
             {
                 try
                 {
-                    
                     string genres = "";
                     foreach (int i in ListBox1.GetSelectedIndices())
                     {
-                        genres = genres + ListBox1.Items[i] + ",";
+                        genres = genres + ListBox1.Items[i] + ',';
                     }
                     genres = genres.Remove(genres.Length - 1);
 
-                    string filepath = "~/book_inventory/books1.png";
-                    string filename = Path.GetFileName(FileUpload3.PostedFile.FileName);
+                    
+                    string filepath_img = "~/book_inventory/books1.png";
+                    string filename_img = Path.GetFileName(FileUpload3.PostedFile.FileName);
 
-                    if (filename == "" || filename == null)
-                    { 
-                        filepath = global_filepath;
+                    if (filename_img == "" || filepath_img == null)
+                    {
+                        filepath_img = global_filepath_img;
                     }
                     else
                     {
-                        FileUpload3.SaveAs(Server.MapPath("book_inventory/" + filename));
-                        filepath = "~/book_inventory/" + filename;
+                        FileUpload3.SaveAs(Server.MapPath("book_inventory/" + filename_img));
+                        filepath_img = "~/book_inventory/" + filename_img;
+                    }
+
+                    string filepath_pdf = "~/book_pdf/";
+                    string filename_pdf = Path.GetFileName(FileUpload4.PostedFile.FileName);
+
+                    if (filename_pdf == "" || filepath_pdf == null)
+                    {
+                        filepath_pdf = global_filepath_pdf;
+                    }
+                    else
+                    {
+                        FileUpload4.SaveAs(Server.MapPath("book_pdf/" + filename_pdf));
+                        filepath_pdf = "~/book_pdf/" + filename_pdf;
                     }
 
                     SqlConnection con = new SqlConnection(strcon);
@@ -137,7 +165,7 @@ namespace OnlineLibraryManagementSystem
                     {
                         con.Open();
                     }
-                    SqlCommand cmd = new SqlCommand("UPDATE book_master_tbl SET book_name=@book_name,genre=@genre,author_name=@author_name,publisher_name=@publisher_name,publish_date=@publish_date,language=@language,edition=@edition,no_of_pages=@no_of_pages,book_description=@book_description,book_img_link=@book_img_link WHERE book_id= '" + textbox7.Text.Trim() + "'", con);
+                    SqlCommand cmd = new SqlCommand("UPDATE book_master_tbl SET book_name=@book_name,genre=@genre,author_name=@author_name,publisher_name=@publisher_name,publish_date=@publish_date,language=@language,edition=@edition,no_of_pages=@no_of_pages,book_description=@book_description,book_img_link=@book_img_link,book_pdf_link=@book_pdf_link WHERE book_id= '" + textbox7.Text.Trim() + "'", con);
 
                     cmd.Parameters.AddWithValue("@book_name", textbox3.Text);
                     cmd.Parameters.AddWithValue("@language", DropDownList1.SelectedItem.Value);
@@ -148,12 +176,68 @@ namespace OnlineLibraryManagementSystem
                     cmd.Parameters.AddWithValue("@genre", genres);
                     cmd.Parameters.AddWithValue("@no_of_pages", textbox9.Text);
                     cmd.Parameters.AddWithValue("@book_description", textbox11.Text);
-                    cmd.Parameters.AddWithValue("@book_img_link", filepath);
+                    cmd.Parameters.AddWithValue("@book_img_link", filepath_img);
+                    cmd.Parameters.AddWithValue("@book_pdf_link", filepath_pdf);
+                    //1
+                    if (FileUpload3.HasFile && FileUpload4.HasFile)
+                    {
+                        string FileExtension_IMG = Path.GetExtension(FileUpload3.FileName);
+                        string FileExtension_PDF = Path.GetExtension(FileUpload4.FileName);
 
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    GridView1.DataBind();
-                    Response.Write("<script>alert('Book Details Updated Successfully.');</script>");
+                        if ((FileExtension_IMG == ".jpg" || FileExtension_IMG == ".png") && FileExtension_PDF == ".pdf")
+                        {
+                            cmd.ExecuteNonQuery();
+                            con.Close();
+                            GridView1.DataBind();
+                            Response.Write("<script>alert('Book Details Updated Successfully.');</script>");
+                        }
+                        else
+                        {
+                            Response.Write("<script>alert('Please Upload JPG or PNG File for Book Image and PDF File for Book PDF!');</script>");
+                        }
+                    }
+                    //2
+                    else if (FileUpload3.HasFile)
+                    {
+                        string FileExtension_IMG = Path.GetExtension(FileUpload3.FileName);
+
+                        if (FileExtension_IMG == ".jpg" || FileExtension_IMG == ".png")
+                        {
+                            cmd.ExecuteNonQuery();
+                            con.Close();
+                            GridView1.DataBind();
+                            Response.Write("<script>alert('Book Details Updated Successfully.');</script>");
+                        }
+                        else
+                        {
+                            Response.Write("<script>alert('Please Upload JPG or PNG File Book Image!');</script>");
+                        }
+                    }
+                    //3
+                    else if (FileUpload4.HasFile)
+                    {
+                        string FileExtension_PDF = Path.GetExtension(FileUpload4.FileName);
+
+                        if (FileExtension_PDF == ".pdf")
+                        {
+                            cmd.ExecuteNonQuery();
+                            con.Close();
+                            GridView1.DataBind();
+                            Response.Write("<script>alert('Book Details Updated Successfully.');</script>");
+                        }
+                        else
+                        {
+                            Response.Write("<script>alert('Please Upload PDF File for Book PDF!');</script>");
+                        }
+                    }
+                    //4
+                    else
+                    {
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                        GridView1.DataBind();
+                        Response.Write("<script>alert('Book Details Updated Successfully.');</script>");
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -203,7 +287,8 @@ namespace OnlineLibraryManagementSystem
                             }
                         }
                     }
-                    global_filepath = dt.Rows[0]["book_img_link"].ToString();
+                    global_filepath_img = dt.Rows[0]["book_img_link"].ToString().Trim();
+                    global_filepath_pdf = dt.Rows[0]["book_pdf_link"].ToString().Trim();
                 }
                 else
                 {
@@ -285,21 +370,26 @@ namespace OnlineLibraryManagementSystem
                 string genres = "";
                 foreach (int i in ListBox1.GetSelectedIndices())
                 {
-                    genres = genres + ListBox1.Items[i] + ",";
+                    genres = genres + ListBox1.Items[i] + ',';
                 }
                 genres = genres.Remove(genres.Length - 1);
 
-                string filepath = "~/book_inventory/books1.png";
-                string filename = Path.GetFileName(FileUpload3.PostedFile.FileName);
-                FileUpload3.SaveAs(Server.MapPath("book_inventory/" + filename));
-                filepath = "~/book_inventory/" + filename;
+                string filepath_img = "~/book_inventory/books1.png";
+                string filename_img = Path.GetFileName(FileUpload3.PostedFile.FileName);
+                FileUpload3.SaveAs(Server.MapPath("book_inventory/" + filename_img));
+                filepath_img = "~/book_inventory/" + filename_img;
+
+                string filepath_pdf = "~/book_pdf/";
+                string filename_pdf = Path.GetFileName(FileUpload4.PostedFile.FileName);
+                FileUpload4.SaveAs(Server.MapPath("book_pdf/" + filename_pdf));
+                filepath_pdf = "~/book_pdf/" + filename_pdf;
 
                 SqlConnection con = new SqlConnection(strcon);
                 if (con.State == ConnectionState.Closed)
                 {
                     con.Open();
                 }
-                SqlCommand cmd = new SqlCommand("INSERT INTO book_master_tbl(book_id,book_name,genre,author_name,publisher_name,publish_date,language,edition,no_of_pages,book_description,book_img_link) values (@book_id,@book_name,@genre,@author_name,@publisher_name,@publish_date,@language,@edition,@no_of_pages,@book_description,@book_img_link)", con);
+                SqlCommand cmd = new SqlCommand("INSERT INTO book_master_tbl(book_id,book_name,genre,author_name,publisher_name,publish_date,language,edition,no_of_pages,book_description,book_img_link,book_pdf_link) values (@book_id,@book_name,@genre,@author_name,@publisher_name,@publish_date,@language,@edition,@no_of_pages,@book_description,@book_img_link,@book_pdf_link)", con);
                 cmd.Parameters.AddWithValue("@book_id", textbox7.Text.Trim());
                 cmd.Parameters.AddWithValue("@book_name", textbox3.Text.Trim());
                 cmd.Parameters.AddWithValue("@language", DropDownList1.SelectedItem.Value);
@@ -310,12 +400,30 @@ namespace OnlineLibraryManagementSystem
                 cmd.Parameters.AddWithValue("@genre", genres);
                 cmd.Parameters.AddWithValue("@no_of_pages", textbox9.Text.Trim());
                 cmd.Parameters.AddWithValue("@book_description", textbox11.Text.Trim());
-                cmd.Parameters.AddWithValue("@book_img_link", filepath);
+                cmd.Parameters.AddWithValue("@book_img_link", filepath_img);
+                cmd.Parameters.AddWithValue("@book_pdf_link", filepath_pdf);
 
-                cmd.ExecuteNonQuery();
-                con.Close();
-                Response.Write("<script>alert('Book Added Successfully.');</script>");
-                GridView1.DataBind();
+                if (FileUpload3.HasFile && FileUpload4.HasFile)
+                {
+                    string FileExtension_IMG = Path.GetExtension(FileUpload3.FileName);
+                    string FileExtension_PDF = Path.GetExtension(FileUpload4.FileName);
+
+                    if ((FileExtension_IMG ==".jpg" || FileExtension_IMG == ".png") && FileExtension_PDF == ".pdf")
+                    {
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                        Response.Write("<script>alert('Book Added Successfully.');</script>");
+                        GridView1.DataBind();
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('Please Upload JPG or PNG File for Book Image and PDF File for Book PDF!');</script>");
+                    }
+                }
+                else
+                {
+                    Response.Write("<script>alert('Please Upload Image or PDF File!');</script>");
+                }
             }
             catch (Exception ex)
             {
