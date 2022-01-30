@@ -17,14 +17,30 @@ namespace OnlineLibraryManagementSystem
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            try
+            {
+                if (Session["role"] == null)
+                {
+                    Response.Write("<script>alert('Session Expired Login Again!');</script>");
+                    Response.Redirect("AdminLogin.aspx");
+                }
+                else
+                {
+                    GridView1.DataBind();
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('Session Expired Login Again!');</script>");
+                Response.Redirect("AdminLogin.aspx");
+            }
         }
         // Add Button
         protected void Button2_Click(object sender, EventArgs e)
         {
             if (checkIfPublisherExists())
             {
-                Response.Write("<script>alert('Publisher ID already exist.');</script>");
+                Response.Write("<script>alert('Publisher ID or Publisher Name already exist.');</script>");
             }
             else
             {
@@ -105,7 +121,7 @@ namespace OnlineLibraryManagementSystem
                     con.Open();
                 }
 
-                SqlCommand cmd = new SqlCommand("SELECT * from publisher_master_tbl where publisher_id='" + textbox1.Text.Trim() + "';", con);
+                SqlCommand cmd = new SqlCommand("SELECT * from publisher_master_tbl where publisher_id='" + textbox1.Text.Trim() + "' OR publisher_name='"+textbox2.Text.Trim()+"';", con);
 
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -214,6 +230,11 @@ namespace OnlineLibraryManagementSystem
         {
             textbox1.Text = "";
             textbox2.Text = "";
+        }
+        // Clear Form Button
+        protected void Button5_Click(object sender, EventArgs e)
+        {
+            clearForm();
         }
     }
 }

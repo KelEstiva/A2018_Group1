@@ -12,7 +12,7 @@ namespace OnlineLibraryManagementSystem
         protected void Page_Load(object sender, EventArgs e)
         {
             try {
-                if (Session["role"]==null)
+                if (Session["role"] == null)
                 {
                     LinkButton1.Visible = true; //student login button link
                     LinkButton2.Visible = true; //student sign up button link
@@ -33,7 +33,7 @@ namespace OnlineLibraryManagementSystem
                     LinkButton4.Visible = true; //view books button link
                     LinkButton3.Visible = true; //logout button link
                     LinkButton7.Visible = true; //hello student button link 
-                    LinkButton7.Text="Hello! "+Session["fullname"].ToString();
+                    LinkButton7.Text = "Hello! " + Session["fullname"].ToString();
                     LinkButton6.Visible = false; //admin login button link
                     LinkButton11.Visible = false; // admin author management button link
                     LinkButton12.Visible = false; //admin publisher management button link
@@ -114,7 +114,7 @@ namespace OnlineLibraryManagementSystem
         }
         protected void LinkButton3_Click(object sender, EventArgs e)
         {
-            Session.Remove("username");
+            Session.Remove("role");
             Session.RemoveAll();
             Session.Abandon();
 

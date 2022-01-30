@@ -15,7 +15,23 @@ namespace OnlineLibraryManagementSystem
         string strcon = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            GridView1.DataBind();
+            try
+            {
+                if (Session["role"] == null)
+                {
+                    Response.Write("<script>alert('Session Expired Login Again!');</script>");
+                    Response.Redirect("AdminLogin.aspx");
+                }
+                else
+                {
+                    GridView1.DataBind();
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('Session Expired Login Again!');</script>");
+                Response.Redirect("AdminLogin.aspx");
+            }
         }
         // Add Button
         protected void Button2_Click(object sender, EventArgs e)
@@ -28,7 +44,7 @@ namespace OnlineLibraryManagementSystem
             {
                 if (checkIfAuthorExists())
                 {
-                    Response.Write("<script>alert('Author ID already exist.');</script>");
+                    Response.Write("<script>alert('Author ID or Author Name already exist.');</script>");
                 }
                 else
                 {
@@ -71,6 +87,11 @@ namespace OnlineLibraryManagementSystem
             {
                 getAuthorByID();
             }
+        }
+        //Clear Button
+        protected void Button5_Click(object sender, EventArgs e)
+        {
+            clearForm();
         }
         void getAuthorByID()
         {
@@ -180,7 +201,7 @@ namespace OnlineLibraryManagementSystem
                     con.Open();
                 }
 
-                SqlCommand cmd = new SqlCommand("SELECT * from author_master_tbl where author_id='" + textbox1.Text.Trim() + "';", con);
+                SqlCommand cmd = new SqlCommand("SELECT * from author_master_tbl where author_id='" + textbox1.Text.Trim() + "' OR author_name='" + textbox2.Text.Trim() + "';", con);
 
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -206,5 +227,7 @@ namespace OnlineLibraryManagementSystem
             textbox1.Text = "";
             textbox2.Text = "";
         }
+
+        
     }
 }

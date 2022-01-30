@@ -19,7 +19,7 @@ namespace OnlineLibraryManagementSystem
         {
             try
             {
-                if (Session["role"].ToString()=="" || Session["role"]==null)
+                if (Session["role"]==null)
                 {
                     Response.Write("<script>alert('Session Expired Login Again!');</script>");
                     Response.Redirect("StudentLogin.aspx");

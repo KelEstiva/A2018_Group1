@@ -147,8 +147,6 @@
                             </div>
                     </div>
                   </div>
-                <br>
-               <a href="HomePage.aspx"><< Back to HomePage</a> <br> <br>  
             </div>
 
             <div class="col-md-8">
@@ -192,5 +190,8 @@
             </div>
         </div> 
     </div>
+    <br>
+                <center><a href="HomePage.aspx"><< Back to HomePage</a><span class="clearfix"></span></center>
+                <br>
 
 </asp:Content>

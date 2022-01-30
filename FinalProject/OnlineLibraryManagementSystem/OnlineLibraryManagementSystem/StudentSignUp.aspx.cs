@@ -18,16 +18,59 @@ namespace OnlineLibraryManagementSystem
         {
 
         }
-
+        //Sign Up Button
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (checkStudentExists())
+            if (textbox1.Text.Equals(""))
             {
-                Response.Write("<script>alert('Student already Exist with this ID, try other ID.');</script>");
+                Response.Write("<script>alert('Please Enter Student Name!');</script>");
+            }
+            else if (textbox2.Text.Equals(""))
+            {
+                Response.Write("<script>alert('Please Enter Date of Birth!');</script>");
+            }
+            else if (textbox3.Text.Equals(""))
+            {
+                Response.Write("<script>alert('Please Enter Contact Number!');</script>");
+            }
+            else if (textbox4.Text.Equals(""))
+            {
+                Response.Write("<script>alert('Please Enter Email Address!');</script>");
+            }
+            else if (DropDownList3.SelectedItem.Value == "Select")
+            {
+                Response.Write("<script>alert('Please Select Gender!');</script>");
+            }
+            else if (DropDownList1.SelectedItem.Value == "Select")
+            {
+                Response.Write("<script>alert('Please Select Course!');</script>");
+            }
+            else if (DropDownList2.SelectedItem.Value == "Select")
+            {
+                Response.Write("<script>alert('Please Select Year Level!');</script>");
+            }
+            else if (textbox5.Text.Equals(""))
+            {
+                Response.Write("<script>alert('Please Enter Permanent Address!');</script>");
+            }
+            else if (textbox6.Text.Equals(""))
+            {
+                Response.Write("<script>alert('Please Enter Your Student ID!');</script>");
+            }
+            else if (textbox8.Text.Equals(""))
+            {
+                Response.Write("<script>alert('Please Enter a Password!');</script>");
             }
             else
             {
-                signUpNewStudent();
+                if (checkStudentExists())
+                {
+                    Response.Write("<script>alert('Student already Exist with this ID, try other ID.');</script>");
+                }
+                else
+                {
+                    signUpNewStudent();
+                }
             }
         }
 
@@ -91,14 +134,31 @@ namespace OnlineLibraryManagementSystem
                 con.Close();
 
                 Response.Write("<script>alert('Sign Up Successfull. Go to Student Login to Login');</script>");
-                Response.Redirect("StudentLogin.aspx");
-
+                clearForm();
+                //Response.Redirect("HomePage.aspx");
             }
             catch (Exception ex)
             {
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
         }
+        void clearForm()
+        {
+            textbox1.Text = "";
+            textbox2.Text = "";
+            textbox3.Text = "";
+            textbox4.Text = "";
+            DropDownList3.SelectedValue = "Select";
+            DropDownList1.SelectedValue = "Select";
+            DropDownList2.SelectedValue = "Select";
+            textbox5.Text = "";
+            textbox6.Text = "";
+            textbox8.Text = "";
+        }
 
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            clearForm();
+        }
     }
 }

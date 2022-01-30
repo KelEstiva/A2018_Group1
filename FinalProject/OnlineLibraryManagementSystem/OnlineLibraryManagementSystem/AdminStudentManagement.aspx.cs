@@ -15,7 +15,23 @@ namespace OnlineLibraryManagementSystem
         string strcon = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            GridView1.DataBind();
+            try
+            {
+                if (Session["role"] == null)
+                {
+                    Response.Write("<script>alert('Session Expired Login Again!');</script>");
+                    Response.Redirect("AdminLogin.aspx");
+                }
+                else
+                {
+                    GridView1.DataBind();
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('Session Expired Login Again!');</script>");
+                Response.Redirect("AdminLogin.aspx");
+            }
         }
         //Go Button
         protected void LinkButton4_Click(object sender, EventArgs e)

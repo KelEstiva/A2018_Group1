@@ -68,7 +68,7 @@
                                  <label>Gender</label>
                                 <div class="form-group">
                                     <asp:DropDownList CssClass="form-control" ID="DropDownList3" runat="server">
-                                        <asp:ListItem Text="Select" value="select"/>
+                                        <asp:ListItem Text="Select" value="Select"/>
                                         <asp:ListItem Text="Male" value="Male"/>
                                         <asp:ListItem Text="Female" value="Female"/>
                                     </asp:DropDownList>
@@ -79,13 +79,9 @@
                                  <label>Course</label>
                                 <div class="form-group">
                                     <asp:DropDownList CssClass="form-control" ID="DropDownList1" runat="server">
-                                        <asp:ListItem Text="Select" value="select"/>
+                                        <asp:ListItem Text="Select" value="Select"/>
                                         <asp:ListItem Text="BSCS" value="BSCS"/>
                                         <asp:ListItem Text="BSIS" value="BSIS"/>
-                                        <asp:ListItem Text="Select" value="select"/>
-                                        <asp:ListItem Text="Select" value="select"/>
-                                        <asp:ListItem Text="Select" value="select"/>
-                                        <asp:ListItem Text="Select" value="select"/>
                                     </asp:DropDownList>
                                 </div>
                             </div>
@@ -94,7 +90,7 @@
                                  <label>Year Level</label>
                                 <div class="form-group">
                                     <asp:DropDownList CssClass="form-control" ID="DropDownList2" runat="server">
-                                        <asp:ListItem Text="Select" value="select"/>
+                                        <asp:ListItem Text="Select" value="Select"/>
                                         <asp:ListItem Text="1st Year" value="1st Year"/>
                                         <asp:ListItem Text="2nd Year" value="2nd Year"/>
                                         <asp:ListItem Text="3rd Year" value="3rd Year"/>
@@ -140,16 +136,26 @@
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    <asp:button class="btn btn-success btn-block btn-lg" ID="Button1" runat="server" text="Sign Up" OnClick="Button1_Click" />
+                                    <asp:button class="btn btn-primary btn-block btn-lg" ID="Button1" runat="server" text="Sign Up" OnClick="Button1_Click" />
                                 </div>
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <asp:button class="btn btn-success btn-block btn-lg" ID="Button2" runat="server" text="Clear Form" OnClick="Button2_Click" />
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                   </div>
-                <br>
-               <a href="HomePage.aspx"><< Back to HomePage</a> <br> <br>
             </div>
         </div> 
     </div>
+    <br>
+                <center><a href="HomePage.aspx"><< Back to HomePage</a><span class="clearfix"></span></center>
+                <br>
 
 </asp:Content>

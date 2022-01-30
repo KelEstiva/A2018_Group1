@@ -11,6 +11,23 @@ namespace OnlineLibraryManagementSystem
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            try
+            {
+                if (Session["role"] == null)
+                {
+                    Response.Write("<script>alert('Session Expired Login Again!');</script>");
+                    Response.Redirect("HomePage.aspx");
+                }
+                else
+                {
+                    GridView2.DataBind();
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('Session Expired Login Again!');</script>");
+                Response.Redirect("HomePage.aspx");
+            }
 
         }
     }

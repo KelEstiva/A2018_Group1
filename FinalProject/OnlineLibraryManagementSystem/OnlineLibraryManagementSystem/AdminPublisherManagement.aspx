@@ -59,7 +59,7 @@
 
                         <div class="row">
                             <div class="col-4">
-                                <asp:Button ID="Button2" class="btn btn-lg btn-success btn-block" runat="server" Text="Add" OnClick="Button2_Click" />
+                                <asp:Button ID="Button2" class="btn btn-lg btn-primary btn-block" runat="server" Text="Add" OnClick="Button2_Click" />
                             </div>
 
                             <div class="col-4">
@@ -70,11 +70,14 @@
                                 <asp:Button ID="Button4" class="btn btn-lg btn-danger btn-block" runat="server" Text="Delete" OnClick="Button4_Click" />
                             </div>
                         </div>
-
+                        <br>
+                        <div class="row">
+                            <div class="col-12">
+                                <asp:Button ID="Button5" class="btn btn-lg btn-success btn-block" runat="server" Text="Clear Form" OnClick="Button5_Click" />
+                                </div>
+                        </div>
                     </div>
                   </div>
-                <br>
-               <a href="HomePage.aspx"><< Back to HomePage</a> <br> <br> <br> <br> <br> <br> <br> 
             </div>
 
             <div class="col-md-7">
@@ -113,5 +116,12 @@
             </div>
         </div> 
     </div>
+        <br>
+    <br>
+    <br>
+    <br>
+    <br>
+                <center><a href="HomePage.aspx"><< Back to HomePage</a><span class="clearfix"></span></center>
+                <br>
 
 </asp:Content>

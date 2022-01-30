@@ -59,20 +59,25 @@ namespace OnlineLibraryManagementSystem
                         Session["role"] = "student";
                         Session["status"] = dr.GetValue(10).ToString();
                     }
-                        if (Session["status"].Equals("Activated"))
-                        {
-                            Response.Redirect("HomePage.aspx");
-                        }
-                        else if (Session["status"].Equals("Pending"))
-                        {
-                            Response.Write("<script>alert('Your account status is Pending');</script>");
-                            Session.RemoveAll();
-                        }
-                        else if (Session["status"].Equals("Deactivated"))
-                        {
-                            Response.Write("<script>alert('Your account status is Deactivated');</script>");
-                            Session.RemoveAll();
-                        }
+                    if (Session["status"].Equals("Activated"))
+                    {
+                        Response.Write("<script>aler('Login Successful.')</script>");
+                        Response.Redirect("HomePage.aspx");
+                    }
+                    else if (Session["status"].Equals("Pending"))
+                    {
+                        Response.Write("<script>alert('Your Account Status is Pending');</script>");
+                        Session.Remove("role");
+                        Session.RemoveAll();
+                        Session.Abandon();
+                    }
+                    else if (Session["status"].Equals("Deactivated"))
+                    {
+                        Response.Write("<script>alert('Your account status is Deactivated');</script>");
+                        Session.Remove("role");
+                        Session.RemoveAll();
+                        Session.Abandon();
+                    }
                 }
                 else
                 {

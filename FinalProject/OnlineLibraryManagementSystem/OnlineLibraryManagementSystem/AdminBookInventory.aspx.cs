@@ -21,7 +21,7 @@ namespace OnlineLibraryManagementSystem
         {
             try
             {
-                if (Session["role"].ToString() == "" || Session["role"] == null)
+                if (Session["role"] == null)
                 {
                     Response.Write("<script>alert('Session Expired Login Again!');</script>");
                     Response.Redirect("AdminLogin.aspx");
@@ -189,6 +189,7 @@ namespace OnlineLibraryManagementSystem
                             cmd.ExecuteNonQuery();
                             con.Close();
                             GridView1.DataBind();
+                            getBookbyID();
                             Response.Write("<script>alert('Book Details Updated Successfully.');</script>");
                         }
                         else
@@ -206,6 +207,7 @@ namespace OnlineLibraryManagementSystem
                             cmd.ExecuteNonQuery();
                             con.Close();
                             GridView1.DataBind();
+                            getBookbyID();
                             Response.Write("<script>alert('Book Details Updated Successfully.');</script>");
                         }
                         else
@@ -223,6 +225,7 @@ namespace OnlineLibraryManagementSystem
                             cmd.ExecuteNonQuery();
                             con.Close();
                             GridView1.DataBind();
+                            getBookbyID();
                             Response.Write("<script>alert('Book Details Updated Successfully.');</script>");
                         }
                         else
@@ -236,6 +239,7 @@ namespace OnlineLibraryManagementSystem
                         cmd.ExecuteNonQuery();
                         con.Close();
                         GridView1.DataBind();
+                        getBookbyID();
                         Response.Write("<script>alert('Book Details Updated Successfully.');</script>");
                     }
                 }
