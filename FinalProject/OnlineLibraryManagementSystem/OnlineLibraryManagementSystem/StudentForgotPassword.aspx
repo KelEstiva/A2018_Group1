@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="StudentLogin.aspx.cs" Inherits="OnlineLibraryManagementSystem.UserLogin" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="StudentForgotPassword.aspx.cs" Inherits="OnlineLibraryManagementSystem.StudentForgotPassword" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -12,15 +12,7 @@
                         <div class="row">
                             <div class="col">
                                 <center>
-                                    <img width="150px" src="imgs/generaluser.png" />
-                                </center>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col">
-                                <center>
-                                    <h3>Student Login</h3>
+                                    <h3>Please Enter Your Registered Student ID And Email Address</h3>
                                 </center>
                             </div>
                         </div>
@@ -38,22 +30,15 @@
                                     <asp:textbox CssClass="form-control" ID="textbox1" runat="server" placeholder="ID" TextMode="Number"></asp:textbox>
                                 </div>
 
-                                <label>Password</label>
+                                <label>Email Address</label>
                                 <div class="form-group">
-                                    <asp:textbox CssClass="form-control" ID="textbox2" runat="server" placeholder="Password" TextMode="Password"></asp:textbox>
+                                    <asp:textbox CssClass="form-control" ID="textbox2" runat="server" placeholder="Example@gmail.com" TextMode="Email"></asp:textbox>
                                 </div>
 
                                 <div class="form-group">
-                                    <asp:button class="btn btn-success btn-block btn-lg" ID="Button1" runat="server" text="Login" OnClick="Button1_Click" />
-                                    
+                                    <asp:button class="btn btn-primary btn-block btn-lg" ID="Button1" runat="server" text="Submit" OnClick="Button1_Click" />
                                 </div>
 
-                                <div class="form-group">
-                                    <a href="StudentSignUp.aspx">
-                                    <input class="btn btn-info btn-block btn-lg" id="Button2" type="button" value="Sign Up" />
-                                    </a>
-                                </div>
-                <center><a href="StudentForgotPassword.aspx">Forgot Password?</a><span class="clearfix"></span></center>
                             </div>
                         </div>
                     </div>
@@ -62,6 +47,10 @@
         </div> 
     </div>
     <br>
+    <br>
+    <br>
+    <br>
                 <center><a href="HomePage.aspx"><< Back to HomePage</a><span class="clearfix"></span></center>
                 <br>
+
 </asp:Content>

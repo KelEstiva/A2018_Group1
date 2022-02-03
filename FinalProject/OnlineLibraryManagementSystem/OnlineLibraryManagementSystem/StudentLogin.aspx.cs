@@ -17,7 +17,7 @@ namespace OnlineLibraryManagementSystem
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["role"] != null)
+            if (Session["username"] != null)
             {
                 Response.Redirect("HomePage.aspx");
             }

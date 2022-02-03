@@ -35,14 +35,14 @@
                             <div class="col-md-6">
                                  <label>Student Name</label>
                                 <div class="form-group">
-                                    <asp:textbox CssClass="form-control" ID="textbox1" runat="server" placeholder="Student Name"></asp:textbox>
+                                    <asp:textbox CssClass="form-control" ID="textbox1" runat="server" placeholder="Last Name/Given Name/M.I."></asp:textbox>
                                 </div>
                             </div>
 
                              <div class="col-md-6">
                                  <label>Date of Birth</label>
                                 <div class="form-group">
-                                    <asp:textbox CssClass="form-control" ID="textbox2" runat="server" placeholder="Password" TextMode="Date"></asp:textbox>
+                                    <asp:textbox CssClass="form-control" ID="textbox2" runat="server" TextMode="Date"></asp:textbox>
                                 </div>
                             </div>
                         </div>
@@ -51,14 +51,14 @@
                             <div class="col-md-6">
                                  <label>Contact No.</label>
                                 <div class="form-group">
-                                    <asp:textbox CssClass="form-control" ID="textbox3" runat="server" placeholder="Contact No." TextMode="Number"></asp:textbox>
+                                    <asp:textbox CssClass="form-control" ID="textbox3" runat="server" placeholder="09*********" TextMode="Number"></asp:textbox>
                                 </div>
                             </div>
 
                              <div class="col-md-6">
                                  <label>Email Address</label>
                                 <div class="form-group">
-                                    <asp:textbox CssClass="form-control" ID="textbox4" runat="server" placeholder="Email Address" TextMode="Email"></asp:textbox>
+                                    <asp:textbox CssClass="form-control" ID="textbox4" runat="server" placeholder="Example@gmail.com" TextMode="Email"></asp:textbox>
                                 </div>
                             </div>
                         </div>
@@ -95,6 +95,7 @@
                                         <asp:ListItem Text="2nd Year" value="2nd Year"/>
                                         <asp:ListItem Text="3rd Year" value="3rd Year"/>
                                         <asp:ListItem Text="4th Year" value="4th Year"/>
+                                        <asp:ListItem Text="5th Year" value="5th Year"/>
                                     </asp:DropDownList>
                                 </div>
                             </div>
@@ -104,7 +105,7 @@
                             <div class="col">
                                  <label>Permanent Address</label>
                                 <div class="form-group">
-                                    <asp:textbox CssClass="form-control" ID="textbox5" runat="server" placeholder="Permanent Address" TextMode="MultiLine" Rows="2"></asp:textbox>
+                                    <asp:textbox CssClass="form-control" ID="textbox5" runat="server" placeholder="House#/ Lot#/ Block#/ Street/ Barangay/ City/ Province" TextMode="MultiLine" Rows="2"></asp:textbox>
                                 </div>
                             </div>
                         </div>
@@ -121,7 +122,7 @@
                             <div class="col-md-6">
                                  <label>Student ID</label>
                                 <div class="form-group">
-                                    <asp:textbox class="form-control" ID="textbox6" runat="server" placeholder="Student ID" TextMode="Number"></asp:textbox>
+                                    <asp:textbox class="form-control" ID="textbox6" runat="server" placeholder="ID" TextMode="Number"></asp:textbox>
                                 </div>
                             </div>
 

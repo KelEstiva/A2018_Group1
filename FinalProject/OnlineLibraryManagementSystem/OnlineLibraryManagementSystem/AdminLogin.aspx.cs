@@ -17,7 +17,7 @@ namespace OnlineLibraryManagementSystem
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Session["role"]!=null)
+            if(Session["username"]!=null)
             {
                 Response.Redirect("HomePage.aspx");
             }
@@ -26,11 +26,11 @@ namespace OnlineLibraryManagementSystem
         {
             if (textbox1.Text.Equals(""))
             {
-                Response.Write("<script>alert('Please Input Username!');</script>");
+                Response.Write("<script>alert('Please Enter Admin Username!');</script>");
             }
             else if (textbox2.Text.Equals(""))
             {
-                Response.Write("<script>alert('Please Input Password!');</script>");
+                Response.Write("<script>alert('Please Enter Admin Password!');</script>");
             }
             else
             {
@@ -63,7 +63,7 @@ namespace OnlineLibraryManagementSystem
                 }
                 else
                 {
-                    Response.Write("<script>alert('Invalid Credentials');</script>");
+                    Response.Write("<script>alert('Incorrect Admin Username or Password!');</script>");
                 }
             }
             catch (Exception ex)

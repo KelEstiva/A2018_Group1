@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="StudentProfile.aspx.cs" Inherits="OnlineLibraryManagementSystem.UserProfile" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="AdminProfile.aspx.cs" Inherits="OnlineLibraryManagementSystem.AdminProfile" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -12,7 +12,7 @@
                         <div class="row">
                             <div class="col">
                                 <center>
-                                    <img width="100px" src="imgs/generaluser.png" />
+                                    <img width="100px" src="imgs/adminuser.png" />
                                 </center>
                             </div>
                         </div>
@@ -20,9 +20,7 @@
                         <div class="row">
                             <div class="col">
                                 <center>
-                                    <h4>Student Profile</h4>
-                                    <span>Account Status - </span>
-                                     <asp:Label class="badge badge-pill badge-info" ID="Label1" runat="server" Text="Your Status"></asp:Label>
+                                    <h4>Admin Profile</h4>
                                 </center>
                             </div>
                         </div>
@@ -37,14 +35,14 @@
                             <div class="col-md-6">
                                  <label>Full Name</label>
                                 <div class="form-group">
-                                    <asp:textbox CssClass="form-control" ID="textbox1" runat="server" placeholder="Full Name"></asp:textbox>
+                                    <asp:textbox CssClass="form-control" ID="textbox1" runat="server" placeholder="Last Name/Given Name/M.I."></asp:textbox>
                                 </div>
                             </div>
 
                              <div class="col-md-6">
                                  <label>Date of Birth</label>
                                 <div class="form-group">
-                                    <asp:textbox CssClass="form-control" ID="textbox2" runat="server" placeholder="Password" TextMode="Date"></asp:textbox>
+                                    <asp:textbox CssClass="form-control" ID="textbox2" runat="server" TextMode="Date"></asp:textbox>
                                 </div>
                             </div>
                         </div>
@@ -53,20 +51,20 @@
                             <div class="col-md-6">
                                  <label>Contact Number</label>
                                 <div class="form-group">
-                                    <asp:textbox CssClass="form-control" ID="textbox3" runat="server" placeholder="Contact Number" TextMode="Number"></asp:textbox>
+                                    <asp:textbox CssClass="form-control" ID="textbox3" runat="server" placeholder="09*********" TextMode="Number"></asp:textbox>
                                 </div>
                             </div>
 
                              <div class="col-md-6">
                                  <label>Email Address</label>
                                 <div class="form-group">
-                                    <asp:textbox CssClass="form-control" ID="textbox4" runat="server" placeholder="Email Address" TextMode="Email"></asp:textbox>
+                                    <asp:textbox CssClass="form-control" ID="textbox4" runat="server" placeholder="Example@gmail.com" TextMode="Email"></asp:textbox>
                                 </div>
                             </div>
                         </div>
 
                          <div class="row">
-                             <div class="col-md-4">
+                             <div class="col-md-12">
                                  <label>Gender</label>
                                 <div class="form-group">
                                     <asp:DropDownList CssClass="form-control" ID="DropDownList3" runat="server">
@@ -76,33 +74,6 @@
                                     </asp:DropDownList>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                 <label>Course</label>
-                                <div class="form-group">
-                                    <asp:DropDownList CssClass="form-control" ID="DropDownList1" runat="server">
-                                        <asp:ListItem Text="Select" value="select"/>
-                                        <asp:ListItem Text="BSCS" value="BSCS"/>
-                                        <asp:ListItem Text="BSIS" value="BSIS"/>
-                                        <asp:ListItem Text="Select" value="select"/>
-                                        <asp:ListItem Text="Select" value="select"/>
-                                        <asp:ListItem Text="Select" value="select"/>
-                                        <asp:ListItem Text="Select" value="select"/>
-                                    </asp:DropDownList>
-                                </div>
-                            </div>
-                             <div class="col-md-4">
-                                 <label>Year Level</label>
-                                <div class="form-group">
-                                    <asp:DropDownList CssClass="form-control" ID="DropDownList2" runat="server">
-                                        <asp:ListItem Text="Select" value="select"/>
-                                        <asp:ListItem Text="1st Year" value="1st Year"/>
-                                        <asp:ListItem Text="2nd Year" value="2nd Year"/>
-                                        <asp:ListItem Text="3rd Year" value="3rd Year"/>
-                                        <asp:ListItem Text="4th Year" value="4th Year"/>
-                                    </asp:DropDownList>
-                                </div>
-                            </div>
-
                         </div>
 
                         <div class="row">
@@ -124,9 +95,9 @@
 
                          <div class="row">
                             <div class="col-md-4">
-                                 <label>Student ID</label>
+                                 <label>Admin Username</label>
                                 <div class="form-group">
-                                    <asp:textbox class="form-control" ID="textbox6" runat="server" placeholder="Student ID" TextMode="Number" ReadOnly="True"></asp:textbox>
+                                    <asp:textbox class="form-control" ID="textbox6" runat="server" placeholder="Username" ReadOnly="True"></asp:textbox>
                                 </div>
                             </div>
 

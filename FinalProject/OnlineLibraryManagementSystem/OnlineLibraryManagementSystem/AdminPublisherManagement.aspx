@@ -119,8 +119,6 @@
         <br>
     <br>
     <br>
-    <br>
-    <br>
                 <center><a href="HomePage.aspx"><< Back to HomePage</a><span class="clearfix"></span></center>
                 <br>
 

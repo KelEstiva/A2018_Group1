@@ -94,9 +94,14 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AboutUs.aspx" />
     <Content Include="AdminBookInventory.aspx" />
+    <Content Include="AdminForgotPassword.aspx" />
+    <Content Include="AdminProfile.aspx" />
     <Content Include="AdminStudentManagement.aspx" />
     <Content Include="book_inventory\books1.png" />
+    <Content Include="imgs\manage-user-account.jpg" />
+    <Content Include="imgs\read-online.jpg" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -1837,6 +1842,7 @@
     <Content Include="imgs\search-online.png" />
     <Content Include="imgs\sign-up.png" />
     <Content Include="imgs\writer.png" />
+    <Content Include="StudentForgotPassword.aspx" />
     <Content Include="StudentLogin.aspx" />
     <Content Include="StudentProfile.aspx" />
     <Content Include="StudentSignUp.aspx" />
@@ -1844,6 +1850,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutUs.aspx.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AboutUs.aspx.designer.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdminAuthorManagement.aspx.cs">
       <DependentUpon>AdminAuthorManagement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1858,12 +1871,26 @@
     <Compile Include="AdminBookInventory.aspx.designer.cs">
       <DependentUpon>AdminBookInventory.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AdminForgotPassword.aspx.cs">
+      <DependentUpon>AdminForgotPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminForgotPassword.aspx.designer.cs">
+      <DependentUpon>AdminForgotPassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdminLogin.aspx.cs">
       <DependentUpon>AdminLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AdminLogin.aspx.designer.cs">
       <DependentUpon>AdminLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminProfile.aspx.cs">
+      <DependentUpon>AdminProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminProfile.aspx.designer.cs">
+      <DependentUpon>AdminProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminStudentManagement.aspx.cs">
       <DependentUpon>AdminStudentManagement.aspx</DependentUpon>
@@ -1893,6 +1920,13 @@
     </Compile>
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="StudentForgotPassword.aspx.cs">
+      <DependentUpon>StudentForgotPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentForgotPassword.aspx.designer.cs">
+      <DependentUpon>StudentForgotPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="StudentLogin.aspx.cs">
       <DependentUpon>StudentLogin.aspx</DependentUpon>

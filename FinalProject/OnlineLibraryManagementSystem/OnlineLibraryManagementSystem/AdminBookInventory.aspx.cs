@@ -21,7 +21,7 @@ namespace OnlineLibraryManagementSystem
         {
             try
             {
-                if (Session["role"] == null)
+                if (Session["username"] == null)
                 {
                     Response.Write("<script>alert('Session Expired Login Again!');</script>");
                     Response.Redirect("AdminLogin.aspx");
@@ -56,9 +56,37 @@ namespace OnlineLibraryManagementSystem
         //Add book Button
         protected void Button5_Click(object sender, EventArgs e)
         {
-            if (textbox7.Text.Trim().Equals("") | textbox3.Text.Trim().Equals(""))
+            if (textbox7.Text.Trim().Equals(""))
             {
-                Response.Write("<script>alert('Please Input Book ID or Book Name!');</script>");
+                Response.Write("<script>alert('Please Input Book ID!');</script>");
+            }
+            else if (textbox3.Text.Trim().Equals(""))
+            {
+                Response.Write("<script>alert('Please Input Book Name!');</script>");
+            }
+            else if (DropDownList1.SelectedItem.Value == "Select")
+            {
+                Response.Write("<script>alert('Please Select Book Language!');</script>");
+            }
+            else if (textbox2.Text.Trim().Equals(""))
+            {
+                Response.Write("<script>alert('Please Input Book Publish Date!');</script>");
+            }
+            else if (textbox1.Text.Trim().Equals(""))
+            {
+                Response.Write("<script>alert('Please Input Book Edition!');</script>");
+            }
+            else if (textbox9.Text.Trim().Equals(""))
+            {
+                Response.Write("<script>alert('Please Input Book Pages!');</script>");
+            }
+            else if (ListBox1.SelectedItem.Value == null)
+            {
+                Response.Write("<script>alert('Please Select Book Genre!');</script>");
+            }
+            else if (textbox11.Text.Trim().Equals(""))
+            {
+                Response.Write("<script>alert('Please Input Book Description!');</script>");
             }
             else
             {
@@ -105,7 +133,7 @@ namespace OnlineLibraryManagementSystem
                         cmd.ExecuteNonQuery();
                         con.Close();
                         Response.Write("<script>alert('Book Deleted Successfully.');</script>");
-                        //clearForm();
+                        clearForm();
                         GridView1.DataBind();
                     }
                     catch (Exception ex)
@@ -118,6 +146,22 @@ namespace OnlineLibraryManagementSystem
                     Response.Write("<script>alert('Invalid Book ID!');</script>");
 
                 }
+        }
+        //Clear Form Function
+        void clearForm()
+        {
+            textbox7.Text = "";
+            textbox3.Text = "";
+            DropDownList1.SelectedValue = "Select";
+            //DropDownList2
+            //DropDownLost3
+            textbox2.Text = "";
+            textbox1.Text = "";
+            textbox9.Text = "";
+            ListBox1.ClearSelection();
+            textbox1.Text = "";
+            //FileUpload3
+            //FileUpload4
         }
         //Update Button Function
         void updateBookByID()
@@ -133,7 +177,6 @@ namespace OnlineLibraryManagementSystem
                     }
                     genres = genres.Remove(genres.Length - 1);
 
-                    
                     string filepath_img = "~/book_inventory/books1.png";
                     string filename_img = Path.GetFileName(FileUpload3.PostedFile.FileName);
 
@@ -366,6 +409,12 @@ namespace OnlineLibraryManagementSystem
                 return false;
             }
         }
+        //Clear Form Button
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            clearForm();
+        }
+
         //Adding Button function
         void addNewBook()
         {
@@ -417,6 +466,7 @@ namespace OnlineLibraryManagementSystem
                         cmd.ExecuteNonQuery();
                         con.Close();
                         Response.Write("<script>alert('Book Added Successfully.');</script>");
+                        clearForm();
                         GridView1.DataBind();
                     }
                     else

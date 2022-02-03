@@ -110,11 +110,18 @@ namespace OnlineLibraryManagementSystem
         }
         protected void LinkButton7_Click(object sender, EventArgs e)
         {
-            Response.Redirect("StudentProfile.aspx");
+            if (Session["role"].Equals("student"))
+            {
+                Response.Redirect("StudentProfile.aspx");
+            }
+            else if (Session["role"].Equals("admin"))
+            {
+                Response.Redirect("AdminProfile.aspx");
+            }
         }
         protected void LinkButton3_Click(object sender, EventArgs e)
         {
-            Session.Remove("role");
+            Session.Remove("username");
             Session.RemoveAll();
             Session.Abandon();
 

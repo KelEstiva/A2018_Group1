@@ -72,7 +72,7 @@
                             <div class="col-md-12">
                                  <label>Stdudent Name</label>
                                 <div class="form-group">
-                                    <asp:textbox CssClass="form-control" ID="textbox12" runat="server" placeholder="Full Name" ReadOnly="True"></asp:textbox>
+                                    <asp:textbox CssClass="form-control" ID="textbox12" runat="server" placeholder="Last Name/Given Name/M.I." ReadOnly="True"></asp:textbox>
                                 </div>
                             </div>
                             </div>
@@ -90,7 +90,7 @@
                              <div class="col-md-6">
                                  <label>Contact No.</label>
                                 <div class="form-group">
-                                    <asp:textbox CssClass="form-control" ID="textbox1" runat="server" placeholder="Contact No." ReadOnly="True"></asp:textbox>
+                                    <asp:textbox CssClass="form-control" ID="textbox1" runat="server" placeholder="09*********" ReadOnly="True"></asp:textbox>
                                 </div>
                             </div>
                         </div>
@@ -99,7 +99,7 @@
                             <div class="col-md-12">
                                  <label>Email Address</label>
                                 <div class="form-group">
-                                    <asp:textbox CssClass="form-control" ID="textbox2" runat="server" placeholder="Email Address" ReadOnly="True"></asp:textbox>
+                                    <asp:textbox CssClass="form-control" ID="textbox2" runat="server" placeholder="Example@gmail.com" ReadOnly="True"></asp:textbox>
                                 </div>
                             </div>
                              </div>
@@ -133,7 +133,7 @@
                             <div class="col-12">
                                  <label>Permanent Address</label>
                                 <div class="form-group">
-                                    <asp:textbox CssClass="form-control" ID="textbox11" runat="server" placeholder="Permanent Address" TextMode="MultiLine" Rows="2" ReadOnly="True"></asp:textbox>
+                                    <asp:textbox CssClass="form-control" ID="textbox11" runat="server" placeholder="House#/ Lot#/ Block#/ Street/ Barangay/ City/ Province" TextMode="MultiLine" Rows="2" ReadOnly="True"></asp:textbox>
                                 </div>
                             </div>
                         </div>
