@@ -67,7 +67,7 @@
                                  <label>Language</label>
                                 <div class="form-group">
                                     <asp:DropDownList Class="form-control" ID="DropDownList1" runat="server">
-                                        <asp:ListItem Text="Select" value="Select"/>
+                                        <asp:ListItem Text="--Select--" value="--Select--"/>
                                         <asp:ListItem Text="English" value="English"/>
                                         <asp:ListItem Text="Filipino" value="Filipino"/>
                                     </asp:DropDownList>
@@ -212,7 +212,7 @@
                                             <ItemTemplate>
                                                 <div class="container-fluid">
                                                     <div class="row">
-                                                        <div class="col-lg-9">
+                                                        <div class="col-lg-8">
                                                             <div class="row">
                                                                 <div class="col-12">
                                                                     <asp:Label ID="Label1" runat="server" Text='<%# Eval("book_name") %>' Font-Bold="True" Font-Size="X-Large"></asp:Label>
@@ -262,12 +262,18 @@
                                                             </div>
                                                             <div class="row">
                                                                 <div class="col-12">
+                                                                    Book PDF -
+                                                                    <asp:Label ID="Label3" runat="server" Font-Bold="True" Text='<%# Eval("book_pdf_link") %>'></asp:Label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-12">
                                                                     Description -
                                                                     <asp:Label ID="Label12" runat="server" Font-Bold="True" Text='<%# Eval("book_description") %>'></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-3">
+                                                        <div class="col-lg-4">
                                                             <asp:Image class="img-fluid" ID="Image1" runat="server" ImageUrl='<%# Eval("book_img_link") %>'></asp:Image>
                                                         </div>
                                                     </div>
@@ -283,6 +289,6 @@
             </div>
         </div> 
     </div>
-                <center><a href="HomePage.aspx"><< Back to HomePageearfix"></span></center>
+                <center><a href="HomePage.aspx"><< Back to HomePage</a><span class="clearfix"></span></center>
                 <br> 
-</asp:Content>
+    </a></asp:Content>

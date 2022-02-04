@@ -105,28 +105,35 @@
                              </div>
 
                         <div class="row">
-
-                             <div class="col-md-4">
+                             <div class="col-md-6">
                                  <label>Gender</label>
                                 <div class="form-group">
                                     <asp:textbox CssClass="form-control" ID="textbox5" runat="server" placeholder="Gender" ReadOnly="True"></asp:textbox>
                                 </div>
                             </div>
 
-                            <div class="col-md-4">
+                            <div class="col-md-6">
+                            <label>Age</label>
+                                 <div class="form-group">
+                                     <asp:TextBox CssClass="form-control" ID="textbox4" runat="server" placeholder="Age" TextMode="Number" ReadOnly="true"></asp:TextBox>
+                                 </div>
+                                </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
                                  <label>Course</label>
                                 <div class="form-group">
                                     <asp:textbox CssClass="form-control" ID="textbox6" runat="server" placeholder="Course" ReadOnly="True"></asp:textbox>
                                 </div>
                             </div>
 
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                  <label>Year Level</label>
                                 <div class="form-group">
                                     <asp:textbox CssClass="form-control" ID="textbox8" runat="server" placeholder="Year Level" ReadOnly="True"></asp:textbox>
                                 </div>
                             </div>
-
                         </div>
 
                         <div class="row">

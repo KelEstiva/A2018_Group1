@@ -64,33 +64,33 @@
                         </div>
 
                          <div class="row">
-                             <div class="col-md-4">
+                             <div class="col-md-6">
                                  <label>Gender</label>
                                 <div class="form-group">
                                     <asp:DropDownList CssClass="form-control" ID="DropDownList3" runat="server">
-                                        <asp:ListItem Text="Select" value="Select"/>
+                                        <asp:ListItem Text="--Select--" value="--Select--"/>
                                         <asp:ListItem Text="Male" value="Male"/>
                                         <asp:ListItem Text="Female" value="Female"/>
                                     </asp:DropDownList>
                                 </div>
                             </div>
 
-                            <div class="col-md-4">
-                                 <label>Course</label>
-                                <div class="form-group">
-                                    <asp:DropDownList CssClass="form-control" ID="DropDownList1" runat="server">
-                                        <asp:ListItem Text="Select" value="Select"/>
-                                        <asp:ListItem Text="BSCS" value="BSCS"/>
-                                        <asp:ListItem Text="BSIS" value="BSIS"/>
-                                    </asp:DropDownList>
-                                </div>
-                            </div>
+                             <div class="col-md-6">
+                                 <label>Age</label>
+                                 <div class="form-group">
+                                     <asp:TextBox CssClass="form-control" ID="textbox7" runat="server" placeholder="Age" TextMode="Number"></asp:TextBox>
+                                 </div>
+                             </div>
+                            
+                        </div>
 
-                             <div class="col-md-4">
+                        <div class="row">
+
+                            <div class="col-md-6">
                                  <label>Year Level</label>
                                 <div class="form-group">
                                     <asp:DropDownList CssClass="form-control" ID="DropDownList2" runat="server">
-                                        <asp:ListItem Text="Select" value="Select"/>
+                                        <asp:ListItem Text="--Select--" value="--Select--"/>
                                         <asp:ListItem Text="1st Year" value="1st Year"/>
                                         <asp:ListItem Text="2nd Year" value="2nd Year"/>
                                         <asp:ListItem Text="3rd Year" value="3rd Year"/>
@@ -99,6 +99,18 @@
                                     </asp:DropDownList>
                                 </div>
                             </div>
+
+                            <div class="col-md-6">
+                                 <label>Course</label>
+                                <div class="form-group">
+                                    <asp:DropDownList CssClass="form-control" ID="DropDownList1" runat="server">
+                                        <asp:ListItem Text="--Select--" value="--Select--"/>
+                                        <asp:ListItem Text="BSCS" value="BSCS"/>
+                                        <asp:ListItem Text="BSIS" value="BSIS"/>
+                                    </asp:DropDownList>
+                                </div>
+                            </div>
+
                         </div>
 
                         <div class="row">
@@ -119,17 +131,25 @@
                         </div>
 
                          <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                  <label>Student ID</label>
                                 <div class="form-group">
                                     <asp:textbox class="form-control" ID="textbox6" runat="server" placeholder="ID" TextMode="Number"></asp:textbox>
                                 </div>
                             </div>
 
-                             <div class="col-md-6">
+                             <div class="col-md-4">
                                  <label>Password</label>
                                 <div class="form-group">
                                     <asp:textbox class="form-control" ID="textbox8" runat="server" placeholder="Password" TextMode="Password"></asp:textbox>
+                                </div>
+                            </div>
+
+                             <div class="col-md-4">
+                                 <label>Confirm Password</label>
+                                <div class="form-group">
+                                    <asp:textbox class="form-control" ID="textbox9" runat="server" placeholder="Confirm Password" TextMode="Password"></asp:textbox>
+                                    <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Password Does Not Matched!" ControlToCompare="textbox8" ControlToValidate="textbox9" ForeColor="#CC0000"></asp:CompareValidator>
                                 </div>
                             </div>
                         </div>
@@ -137,7 +157,7 @@
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    <asp:button class="btn btn-primary btn-block btn-lg" ID="Button1" runat="server" text="Sign Up" OnClick="Button1_Click" />
+                                    <asp:button class="btn btn-primary btn-block btn-lg" ID="Button1" runat="server" text="Sign Up" OnClick="Button1_Click"/>
                                 </div>
                             </div>
                         </div>

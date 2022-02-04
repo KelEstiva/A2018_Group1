@@ -41,17 +41,47 @@ namespace OnlineLibraryManagementSystem
         //Update Button
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (Session["username"].ToString() == "" || Session["username"] == null)
+            if (textbox1.Text.Equals(""))
             {
-                Response.Write("<script>alert('Session Expired Login Again!');</script>");
-                Response.Redirect("StudentLogin.aspx");
+                Response.Write("<script>alert('Please Enter Student Full Name!');</script>");
             }
-            else
+            else if (textbox2.Text.Equals(""))
             {
+                Response.Write("<script>alert('Please Enter Date of Birth!');</script>");
+            }
+            else if (textbox3.Text.Equals(""))
+            {
+                Response.Write("<script>alert('Please Enter Contact Number!');</script>");
+            }
+            else if (textbox4.Text.Equals(""))
+            {
+                Response.Write("<script>alert('Please Enter Email Address!');</script>");
+            }
+            else if (DropDownList3.SelectedItem.Value == "--Select--")
+            {
+                Response.Write("<script>alert('Please Select Gender!');</script>");
+            }
+            else if(textbox7.Text.Equals(""))
+            {
+                Response.Write("<script>alert('Please Enter Age!');</script>");
+            }
+            else if (DropDownList1.SelectedItem.Value == "--Select--")
+            {
+                Response.Write("<script>alert('Please Select Course!');</script>");
+            }
+            else if (DropDownList2.SelectedItem.Value == "--Select--")
+            {
+                Response.Write("<script>alert('Please Select Year Level!');</script>");
+            }
+            else if (textbox5.Text.Equals(""))
+            {
+                Response.Write("<script>alert('Please Enter Permanent Address!');</script>");
+            }
+            else {
                 updateStudentPersonalDetails();
             }
         }
-
+        //
         void updateStudentPersonalDetails()
         {
             string password = "";
@@ -71,7 +101,7 @@ namespace OnlineLibraryManagementSystem
                 {
                     con.Open();
                 }
-                SqlCommand cmd = new SqlCommand("UPDATE student_master_tbl SET full_name=@full_name,date_of_birth=@date_of_birth,contact_number=@contact_number,email_address=@email_address,gender=@gender,course=@course,year=@year,full_address=@full_address,password=@password WHERE student_id='" + Session["username"].ToString().Trim() + "'", con);
+                SqlCommand cmd = new SqlCommand("UPDATE student_master_tbl SET full_name=@full_name,date_of_birth=@date_of_birth,contact_number=@contact_number,email_address=@email_address,gender=@gender,course=@course,year=@year,full_address=@full_address,password=@password,age=@age WHERE student_id='" + Session["username"].ToString().Trim() + "'", con);
                 cmd.Parameters.AddWithValue("@full_name", textbox1.Text.Trim());
                 cmd.Parameters.AddWithValue("@date_of_birth", textbox2.Text.Trim());
                 cmd.Parameters.AddWithValue("@contact_number", textbox3.Text.Trim());
@@ -81,7 +111,8 @@ namespace OnlineLibraryManagementSystem
                 cmd.Parameters.AddWithValue("@year", DropDownList2.SelectedItem.Value);
                 cmd.Parameters.AddWithValue("@full_address", textbox5.Text.Trim());
                 cmd.Parameters.AddWithValue("@password", password);
-              
+                cmd.Parameters.AddWithValue("@age", textbox7.Text.Trim());
+
                 int result = cmd.ExecuteNonQuery();
                 con.Close();
                 if (result>0)
@@ -99,7 +130,7 @@ namespace OnlineLibraryManagementSystem
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
         }
-
+        //
         void getStudentPersonalDetails()
         {
             try
@@ -124,20 +155,13 @@ namespace OnlineLibraryManagementSystem
                 textbox5.Text = dt.Rows[0]["full_address"].ToString();
                 textbox6.Text = dt.Rows[0]["student_id"].ToString();
                 textbox8.Text = dt.Rows[0]["password"].ToString();
+                textbox7.Text = dt.Rows[0]["age"].ToString();
 
 
                 Label1.Text = dt.Rows[0]["account_status"].ToString();
                 if (dt.Rows[0]["account_status"].ToString().Trim() == "Activated")
                 {
                     Label1.Attributes.Add("class", "badge badge-pill badge-success");
-                }
-                else if (dt.Rows[0]["account_status"].ToString().Trim() == "Pending")
-                {
-                    Label1.Attributes.Add("class", "badge badge-pill badge-warning");
-                }
-                else if (dt.Rows[0]["account_status"].ToString().Trim() == "Deactivated")
-                {
-                    Label1.Attributes.Add("class", "badge badge-pill badge-danger");
                 }
                 else
                 {

@@ -152,7 +152,7 @@ namespace OnlineLibraryManagementSystem
         {
             textbox7.Text = "";
             textbox3.Text = "";
-            DropDownList1.SelectedValue = "Select";
+            DropDownList1.SelectedValue = "--Select--";
             //DropDownList2
             //DropDownLost3
             textbox2.Text = "";

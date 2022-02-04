@@ -152,6 +152,7 @@ namespace OnlineLibraryManagementSystem
                             textbox6.Text = dr.GetValue(5).ToString();
                             textbox8.Text = dr.GetValue(6).ToString();
                             textbox11.Text = dr.GetValue(8).ToString();
+                            textbox4.Text = dr.GetValue(11).ToString();
                         }
                     }
                     else
@@ -244,6 +245,7 @@ namespace OnlineLibraryManagementSystem
             textbox8.Text = "";
             textbox11.Text = "";
             textbox7.Text = "";
+            textbox4.Text = "";
         }
     }
 }

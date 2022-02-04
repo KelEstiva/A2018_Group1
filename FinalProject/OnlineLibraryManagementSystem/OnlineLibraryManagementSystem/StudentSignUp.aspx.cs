@@ -16,7 +16,10 @@ namespace OnlineLibraryManagementSystem
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["username"] != null)
+            {
+                Response.Redirect("HomePage.aspx");
+            }
         }
         //Sign Up Button
         protected void Button1_Click(object sender, EventArgs e)
@@ -37,15 +40,15 @@ namespace OnlineLibraryManagementSystem
             {
                 Response.Write("<script>alert('Please Enter Email Address!');</script>");
             }
-            else if (DropDownList3.SelectedItem.Value == "Select")
+            else if (DropDownList3.SelectedItem.Value == "--Select--")
             {
                 Response.Write("<script>alert('Please Select Gender!');</script>");
             }
-            else if (DropDownList1.SelectedItem.Value == "Select")
+            else if (DropDownList1.SelectedItem.Value == "--Select--")
             {
                 Response.Write("<script>alert('Please Select Course!');</script>");
             }
-            else if (DropDownList2.SelectedItem.Value == "Select")
+            else if (DropDownList2.SelectedItem.Value == "--Select--")
             {
                 Response.Write("<script>alert('Please Select Year Level!');</script>");
             }
@@ -55,26 +58,151 @@ namespace OnlineLibraryManagementSystem
             }
             else if (textbox6.Text.Equals(""))
             {
-                Response.Write("<script>alert('Please Enter Your Student ID!');</script>");
+                Response.Write("<script>alert('Please Enter Student ID!');</script>");
             }
             else if (textbox8.Text.Equals(""))
             {
-                Response.Write("<script>alert('Please Enter a Password!');</script>");
+                Response.Write("<script>alert('Please Enter Password!');</script>");
+            }
+            else if (textbox7.Text.Equals(""))
+            {
+                Response.Write("<script>alert('Please Enter Age!');</script>");
+            }
+            else if (textbox9.Text.Equals(""))
+            {
+                Response.Write("<script>alert('Please Enter Confirm Password!');</script>");
             }
             else
             {
-                if (checkStudentExists())
+                if (checkStudentIdExists())
                 {
-                    Response.Write("<script>alert('Student already Exist with this ID, try other ID.');</script>");
+                    Response.Write("<script>alert('Student ID Already Exist!');</script>");
                 }
                 else
                 {
-                    signUpNewStudent();
+                    if (checkStudentFullNameExists())
+                    {
+                        Response.Write("<script>alert('Student Full Name Already Exist!');</script>");
+                    }
+                    else
+                    {
+                        if (checkContactNumberExists())
+                        {
+                            Response.Write("<script>alert('Contact Number Already Exist!');</script>");
+                        }
+                        else
+                        {
+                            if (checkEmailAddressExists())
+                            {
+                                Response.Write("<script>alert('Email Address Already Exist!');</script>");
+                            }
+                            else
+                            {
+                                signUpNewStudent();
+                            }
+                        }
+                    }
                 }
             }
         }
+        //
+        bool checkContactNumberExists()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(strcon);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
 
-        bool checkStudentExists()
+                SqlCommand cmd = new SqlCommand("SELECT * from student_master_tbl where contact_number='" + textbox3.Text.Trim() + "';", con);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                if (dt.Rows.Count >= 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                return false;
+            }
+        }
+        //
+        bool checkStudentFullNameExists()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(strcon);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                SqlCommand cmd = new SqlCommand("SELECT * from student_master_tbl where full_name='" + textbox1.Text.Trim() + "';", con);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                if (dt.Rows.Count >= 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                return false;
+            }
+        }
+        //
+        bool checkEmailAddressExists()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(strcon);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                SqlCommand cmd = new SqlCommand("SELECT * from student_master_tbl where email_address='" + textbox4.Text.Trim() + "';", con);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                if (dt.Rows.Count >= 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                return false;
+            }
+        }
+        //
+        bool checkStudentIdExists()
         {
             try
             {
@@ -105,18 +233,17 @@ namespace OnlineLibraryManagementSystem
                 return false;
             }
         }
-
+        //
         void signUpNewStudent()
         {
             try
-            {
+            { 
                 SqlConnection con = new SqlConnection(strcon);
                 if (con.State == ConnectionState.Closed)
                 {
                     con.Open();
                 }
-
-                SqlCommand cmd = new SqlCommand("INSERT INTO student_master_tbl(full_name,date_of_birth,contact_number,email_address,gender,course,year,student_id,full_address,password,account_status) values (@full_name,@date_of_birth,@contact_number,@email_address,@gender,@course,@year,@student_id,@full_address,@password,@account_status)", con);
+                SqlCommand cmd = new SqlCommand("INSERT INTO student_master_tbl(full_name,date_of_birth,contact_number,email_address,gender,course,year,student_id,full_address,password,account_status,age) values (@full_name,@date_of_birth,@contact_number,@email_address,@gender,@course,@year,@student_id,@full_address,@password,@account_status,@age)", con);
 
                 cmd.Parameters.AddWithValue("@full_name", textbox1.Text.Trim());
                 cmd.Parameters.AddWithValue("@date_of_birth", textbox2.Text.Trim());
@@ -129,33 +256,36 @@ namespace OnlineLibraryManagementSystem
                 cmd.Parameters.AddWithValue("@student_id", textbox6.Text.Trim());
                 cmd.Parameters.AddWithValue("@password", textbox8.Text.Trim());
                 cmd.Parameters.AddWithValue("@account_status", "Pending");
+                cmd.Parameters.AddWithValue("@age", textbox7.Text.Trim());
 
                 cmd.ExecuteNonQuery();
                 con.Close();
 
                 Response.Write("<script>alert('Sign Up Successfull. Go to Student Login to Login');</script>");
                 clearForm();
-                //Response.Redirect("HomePage.aspx");
             }
             catch (Exception ex)
             {
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
         }
+        //
         void clearForm()
         {
             textbox1.Text = "";
             textbox2.Text = "";
             textbox3.Text = "";
             textbox4.Text = "";
-            DropDownList3.SelectedValue = "Select";
-            DropDownList1.SelectedValue = "Select";
-            DropDownList2.SelectedValue = "Select";
+            DropDownList3.SelectedValue = "--Select--";
+            DropDownList1.SelectedValue = "--Select--";
+            DropDownList2.SelectedValue = "--Select--";
             textbox5.Text = "";
             textbox6.Text = "";
             textbox8.Text = "";
+            textbox7.Text = "";
+            textbox9.Text = "";
         }
-
+        //
         protected void Button2_Click(object sender, EventArgs e)
         {
             clearForm();

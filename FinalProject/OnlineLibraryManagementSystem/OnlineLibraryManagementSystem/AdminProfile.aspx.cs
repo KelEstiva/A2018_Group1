@@ -40,10 +40,33 @@ namespace OnlineLibraryManagementSystem
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (Session["username"].ToString() == "" || Session["username"] == null)
+            if (textbox1.Text.Equals(""))
             {
-                Response.Write("<script>alert('Session Expired Login Again!');</script>");
-                Response.Redirect("AdminLogin.aspx");
+                Response.Write("<script>alert('Please Enter Full Name!');</script>");
+            }
+            else if (textbox2.Text.Equals(""))
+            {
+                Response.Write("<script>alert('Please Enter Date of Birth!');</script>");
+            }
+            else if (textbox3.Text.Equals(""))
+            {
+                Response.Write("<script>alert('Please Enter Contact Number!');</script>");
+            }
+            else if (textbox4.Text.Equals(""))
+            {
+                Response.Write("<script>alert('Please Enter Email Address!');</script>");
+            }
+            else if (DropDownList3.SelectedItem.Value == "--Select--")
+            {
+                Response.Write("<script>alert('Please Select Gender!');</script>");
+            }
+            else if (textbox7.Text.Equals(""))
+            {
+                Response.Write("<script>alert('Please Enter Age!');</script>");
+            }
+            else if (textbox5.Text.Equals(""))
+            {
+                Response.Write("<script>alert('Please Enter Permanent Address!');</script>");
             }
             else
             {
@@ -70,7 +93,7 @@ namespace OnlineLibraryManagementSystem
                 {
                     con.Open();
                 }
-                SqlCommand cmd = new SqlCommand("UPDATE admin_login_tbl SET full_name=@full_name,date_of_birth=@date_of_birth,contact_number=@contact_number,email_address=@email_address,gender=@gender,full_address=@full_address,password=@password WHERE username='" + Session["username"].ToString().Trim() + "'", con);
+                SqlCommand cmd = new SqlCommand("UPDATE admin_login_tbl SET full_name=@full_name,date_of_birth=@date_of_birth,contact_number=@contact_number,email_address=@email_address,gender=@gender,full_address=@full_address,password=@password, age=@age WHERE username='" + Session["username"].ToString().Trim() + "'", con);
                 cmd.Parameters.AddWithValue("@full_name", textbox1.Text.Trim());
                 cmd.Parameters.AddWithValue("@date_of_birth", textbox2.Text.Trim());
                 cmd.Parameters.AddWithValue("@contact_number", textbox3.Text.Trim());
@@ -78,6 +101,7 @@ namespace OnlineLibraryManagementSystem
                 cmd.Parameters.AddWithValue("@gender", DropDownList3.SelectedItem.Value);
                 cmd.Parameters.AddWithValue("@full_address", textbox5.Text.Trim());
                 cmd.Parameters.AddWithValue("@password", password);
+                cmd.Parameters.AddWithValue("@age", textbox7.Text.Trim());
 
                 int result = cmd.ExecuteNonQuery();
                 con.Close();
@@ -119,6 +143,7 @@ namespace OnlineLibraryManagementSystem
                 DropDownList3.SelectedValue = dt.Rows[0]["gender"].ToString();
                 textbox5.Text = dt.Rows[0]["full_address"].ToString();
                 textbox8.Text = dt.Rows[0]["password"].ToString();
+                textbox7.Text = dt.Rows[0]["age"].ToString();
             }
             catch (Exception ex)
             {
