@@ -136,8 +136,8 @@
                             <div class="col-md-4">
                                  <label>Student ID</label>
                                 <div class="form-group">
-                                    <asp:textbox class="form-control" ID="textbox6" runat="server" placeholder="ID" MaxLength="7" TextMode="SingleLine"></asp:textbox>
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="Invalid Student ID!" ControlToValidate="textbox6" ForeColor="#CC0000" ValidationExpression="^([1-9]{2})([0-9]{5})$"></asp:RegularExpressionValidator>
+                                    <asp:textbox class="form-control" ID="textbox6" runat="server" placeholder="XX-XXXXX" MaxLength="8"></asp:textbox>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="Invalid Student ID!" ControlToValidate="textbox6" ForeColor="#CC0000" ValidationExpression="^([1-9]{2})([-]{1})([0-9]{5})$"></asp:RegularExpressionValidator>
                                 </div>
                             </div>
 

@@ -33,6 +33,7 @@
                                 <label>Email Address</label>
                                 <div class="form-group">
                                     <asp:textbox CssClass="form-control" ID="textbox2" runat="server" placeholder="Example@gmail.com" TextMode="Email"></asp:textbox>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Invalid Email Address!" ControlToValidate="textbox2" ForeColor="#CC0000" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                                 </div>
 
                                 <div class="form-group">

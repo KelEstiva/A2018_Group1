@@ -35,7 +35,7 @@
                             <div class="col">
                                 <label>Student ID</label>
                                 <div class="form-group">
-                                    <asp:textbox CssClass="form-control" ID="textbox1" runat="server" placeholder="ID" TextMode="Number"></asp:textbox>
+                                    <asp:textbox CssClass="form-control" ID="textbox1" runat="server" placeholder="ID" TextMode="SingleLine" MaxLength="7"></asp:textbox>
                                 </div>
 
                                 <label>Password</label>

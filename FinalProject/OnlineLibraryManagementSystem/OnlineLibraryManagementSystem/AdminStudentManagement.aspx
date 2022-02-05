@@ -43,7 +43,7 @@
                                  <label>Student ID</label>
                                 <div class="form-group">
                                     <div class="input-group">
-                                    <asp:textbox CssClass="form-control mr-1" ID="textbox7" runat="server" placeholder="ID" TextMode="Number"></asp:textbox>
+                                    <asp:textbox CssClass="form-control mr-1" ID="textbox7" runat="server" placeholder="ID" TextMode="SingleLine" MaxLength="7"></asp:textbox>
                                     <asp:LinkButton Class="btn btn-primary" ID="LinkButton4" Text="Go" runat="server" OnClick="LinkButton4_Click"></asp:LinkButton>
                                 </div>
                               </div>

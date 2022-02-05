@@ -27,12 +27,13 @@
                             <div class="col">
                                 <label>Student ID</label>
                                 <div class="form-group">
-                                    <asp:textbox CssClass="form-control" ID="textbox1" runat="server" placeholder="ID" TextMode="Number"></asp:textbox>
+                                    <asp:textbox CssClass="form-control" ID="textbox1" runat="server" placeholder="ID" TextMode="SingleLine" MaxLength="7"></asp:textbox>
                                 </div>
 
                                 <label>Email Address</label>
                                 <div class="form-group">
                                     <asp:textbox CssClass="form-control" ID="textbox2" runat="server" placeholder="Example@gmail.com" TextMode="Email"></asp:textbox>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Invalid Email Address!" ControlToValidate="textbox2" ForeColor="#CC0000" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                                 </div>
 
                                 <div class="form-group">

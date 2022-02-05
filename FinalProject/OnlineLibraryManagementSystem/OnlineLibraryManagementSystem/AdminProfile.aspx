@@ -60,6 +60,7 @@
                                  <label>Email Address</label>
                                 <div class="form-group">
                                     <asp:textbox CssClass="form-control" ID="textbox4" runat="server" placeholder="Example@gmail.com" TextMode="Email"></asp:textbox>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Invalid Email Address!" ControlToValidate="textbox4" ForeColor="#CC0000" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                                 </div>
                             </div>
                         </div>
@@ -123,8 +124,8 @@
                             <div class="col-md-6">
                                  <label>New Password</label>
                                 <div class="form-group">
-                                    <asp:textbox class="form-control" ID="textbox9" runat="server" placeholder="Password" TextMode="Password"></asp:textbox>
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Invalid Password!" ControlToValidate="textbox9" ForeColor="#CC0000" ValidationExpression="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}"></asp:RegularExpressionValidator>
+                                    <asp:textbox class="form-control" ID="textbox9" runat="server" placeholder="New Password" TextMode="Password"></asp:textbox>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Invalid New Password!" ControlToValidate="textbox9" ForeColor="#CC0000" ValidationExpression="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}"></asp:RegularExpressionValidator>
                                 </div>
                             </div>
 
