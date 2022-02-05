@@ -19,7 +19,7 @@ namespace OnlineLibraryManagementSystem
         {
             if(Session["username"]!=null)
             {
-                Response.Redirect("HomePage.aspx");
+                Response.Redirect("Default.aspx");
             }
         }
         protected void Button1_Click(object sender, EventArgs e)
@@ -59,7 +59,7 @@ namespace OnlineLibraryManagementSystem
                         Session["fullname"] = dr.GetValue(2).ToString();
                         Session["role"] = "admin";
                     }
-                    Response.Redirect("HomePage.aspx");
+                    Response.Redirect("Default.aspx");
                 }
                 else
                 {

@@ -141,7 +141,7 @@ namespace OnlineLibraryManagementSystem
             LinkButton10.Visible = false; //admin student management button link
             LinkButton4.Visible = false; //view books button link
 
-            Response.Redirect("HomePage.aspx");
+            Response.Redirect("Default.aspx");
 
         }
     }

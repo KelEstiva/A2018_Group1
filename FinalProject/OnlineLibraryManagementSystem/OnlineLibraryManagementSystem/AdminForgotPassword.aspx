@@ -51,7 +51,7 @@
     <br>
     <br>
     <br>
-                <center><a href="HomePage.aspx"><< Back to HomePage</a><span class="clearfix"></span></center>
+                <center><a href="Default.aspx"><< Back to HomePage</a><span class="clearfix"></span></center>
                 <br>
 
 </asp:Content>

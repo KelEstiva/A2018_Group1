@@ -1826,7 +1826,7 @@
     <Content Include="fontawesome\webfonts\fa-brands-400.svg" />
     <Content Include="fontawesome\webfonts\fa-regular-400.svg" />
     <Content Include="fontawesome\webfonts\fa-solid-900.svg" />
-    <Content Include="HomePage.aspx" />
+    <Content Include="Default.aspx" />
     <Content Include="imgs\adminuser.png" />
     <Content Include="imgs\book-online.png" />
     <Content Include="imgs\books.png" />
@@ -1906,12 +1906,12 @@
     <Compile Include="AdminPublisherManagement.aspx.designer.cs">
       <DependentUpon>AdminPublisherManagement.aspx</DependentUpon>
     </Compile>
-    <Compile Include="HomePage.aspx.cs">
-      <DependentUpon>HomePage.aspx</DependentUpon>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="HomePage.aspx.designer.cs">
-      <DependentUpon>HomePage.aspx</DependentUpon>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site1.Master.cs">

@@ -19,7 +19,7 @@ namespace OnlineLibraryManagementSystem
         {
             if (Session["username"] != null)
             {
-                Response.Redirect("HomePage.aspx");
+                Response.Redirect("Default.aspx");
             }
         }
 
@@ -62,7 +62,7 @@ namespace OnlineLibraryManagementSystem
                     if (Session["status"].Equals("Activated"))
                     {
                         Response.Write("<script>aler('Login Successful.')</script>");
-                        Response.Redirect("HomePage.aspx");
+                        Response.Redirect("Default.aspx");
                     }
                     else if (Session["status"].Equals("Pending"))
                     {

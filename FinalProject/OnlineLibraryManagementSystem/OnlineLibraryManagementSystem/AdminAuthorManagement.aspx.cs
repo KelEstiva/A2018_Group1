@@ -227,7 +227,5 @@ namespace OnlineLibraryManagementSystem
             textbox1.Text = "";
             textbox2.Text = "";
         }
-
-        
     }
 }

@@ -18,7 +18,7 @@ namespace OnlineLibraryManagementSystem
         {
             if (Session["username"] != null)
             {
-                Response.Redirect("HomePage.aspx");
+                Response.Redirect("Default.aspx");
             }
         }
         //Sign Up Button
