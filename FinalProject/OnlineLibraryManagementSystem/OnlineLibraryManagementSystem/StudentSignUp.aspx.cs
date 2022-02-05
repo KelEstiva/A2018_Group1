@@ -261,7 +261,7 @@ namespace OnlineLibraryManagementSystem
                 cmd.ExecuteNonQuery();
                 con.Close();
 
-                Response.Write("<script>alert('Sign Up Successfull. Go to Student Login to Login');</script>");
+                Response.Write("<script>alert('Sign Up Successfull. Please Wait The Admin To Activate Your Account.');</script>");
                 clearForm();
             }
             catch (Exception ex)

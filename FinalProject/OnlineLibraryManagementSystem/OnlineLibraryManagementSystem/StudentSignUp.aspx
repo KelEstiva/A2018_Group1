@@ -107,8 +107,22 @@
                                 <div class="form-group">
                                     <asp:DropDownList CssClass="form-control" ID="DropDownList1" runat="server">
                                         <asp:ListItem Text="--Select--" value="--Select--"/>
-                                        <asp:ListItem Text="BSCS" value="BSCS"/>
-                                        <asp:ListItem Text="BSIS" value="BSIS"/>
+                                        <asp:ListItem Text="BS in Computer Science" value="BSCS"/>
+                                        <asp:ListItem Text="BS in Information System" value="BSIS"/>
+                                        <asp:ListItem Text="BS in Business Administration" value="BSBA"/>
+                                        <asp:ListItem Text="BS in Public Administration" value="BSPA"/>
+                                        <asp:ListItem Text="BS in Civil Engineering" value="BSCE"/>
+                                        <asp:ListItem Text="BS in Criminology" value="BS Crim"/>
+                                        <asp:ListItem Text="BS in Hospitality Management" value="BSHM"/>
+                                        <asp:ListItem Text="BS in Tourism Management" value="BSTM"/>
+                                        <asp:ListItem Text="BS in Entrepreneurial Management" value="BSEM"/>
+                                        <asp:ListItem Text="BS in Office Administration" value="BSOA"/>
+                                        <asp:ListItem Text="BS in Psychology" value="BS Psych"/>
+                                        <asp:ListItem Text="BS in Social Work" value="BSSW"/>
+                                        <asp:ListItem Text="BS in Industrial Technology" value="BSIT"/>
+                                        <asp:ListItem Text="BS in Industrial Engineering" value="BSIE"/>
+                                        <asp:ListItem Text="BS in Secondary Education" value="BSEd"/>
+                                        <asp:ListItem Text="BS in Elementary Education" value="BEEd"/>
                                     </asp:DropDownList>
                                 </div>
                             </div>
@@ -145,7 +159,7 @@
                                  <label>Password</label>
                                 <div class="form-group">
                                     <asp:textbox class="form-control" ID="textbox8" runat="server" placeholder="Password" TextMode="Password"></asp:textbox>
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Invalid Password!" ControlToValidate="textbox8" ForeColor="#CC0000" ValidationExpression="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}"></asp:RegularExpressionValidator>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Must have a-AZ-z and 0-9!" ControlToValidate="textbox8" ForeColor="#CC0000" ValidationExpression="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}"></asp:RegularExpressionValidator>
                                 </div>
                             </div>
 

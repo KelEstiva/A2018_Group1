@@ -138,6 +138,8 @@
                                         <asp:ListItem Text="Textbook" Value="Textbook" />
                                         <asp:ListItem Text="Science" Value="Science" />
                                         <asp:ListItem Text="Travel" Value="Travel" />
+                                        <asp:ListItem Text="Journal" Value="Journal" />
+                                        <asp:ListItem Text="Article" Value="Article" />
 
                                     </asp:ListBox>
                                 </div>
