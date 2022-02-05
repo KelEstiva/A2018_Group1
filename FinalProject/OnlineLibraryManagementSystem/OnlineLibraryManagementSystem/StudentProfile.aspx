@@ -54,6 +54,7 @@
                                  <label>Contact Number</label>
                                 <div class="form-group">
                                     <asp:textbox CssClass="form-control" ID="textbox3" runat="server" placeholder="Contact Number" TextMode="Number"></asp:textbox>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Invalid Contact Number!" ControlToValidate="textbox3" ForeColor="#CC0000" ValidationExpression="^([0]{1})([9]{1})([0-9]{9})$"></asp:RegularExpressionValidator>
                                 </div>
                             </div>
 
@@ -155,6 +156,7 @@
                                  <label>New Password</label>
                                 <div class="form-group">
                                     <asp:textbox class="form-control" ID="textbox9" runat="server" placeholder="Password" TextMode="Password"></asp:textbox>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Invalid Password!" ControlToValidate="textbox9" ForeColor="#CC0000" ValidationExpression="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}"></asp:RegularExpressionValidator>
                                 </div>
                             </div>
 
