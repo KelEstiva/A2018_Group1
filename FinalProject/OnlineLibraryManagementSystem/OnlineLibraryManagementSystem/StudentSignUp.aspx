@@ -33,7 +33,7 @@
 
                          <div class="row">
                             <div class="col-md-6">
-                                 <label>Student Name</label>
+                                 <label>Student Full Name</label>
                                 <div class="form-group">
                                     <asp:textbox CssClass="form-control" ID="textbox1" runat="server" placeholder="Last Name/Given Name/M.I."></asp:textbox>
                                 </div>
@@ -52,7 +52,7 @@
                                  <label>Contact Number</label>
                                 <div class="form-group">
                                     <asp:textbox CssClass="form-control" ID="textbox3" runat="server" placeholder="09*********" TextMode="Number" MaxLength="11"></asp:textbox>
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Invalid Contact Number!" ControlToValidate="textbox3" ForeColor="#CC0000" ValidationExpression="^([0]{1})([9]{1})([0-9]{9})$"></asp:RegularExpressionValidator>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="*sInvalid Contact Number!" ControlToValidate="textbox3" ForeColor="#CC0000" ValidationExpression="^([0]{1})([9]{1})([0-9]{9})$"></asp:RegularExpressionValidator>
                                 </div>
                             </div>
 
@@ -60,7 +60,7 @@
                                  <label>Email Address</label>
                                 <div class="form-group">
                                     <asp:textbox CssClass="form-control" ID="textbox4" runat="server" placeholder="Example@gmail.com" TextMode="Email"></asp:textbox>
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Invalid Email Address!" ControlToValidate="textbox4" ForeColor="#CC0000" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="*Invalid Email Address!" ControlToValidate="textbox4" ForeColor="#CC0000" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                                 </div>
                             </div>
                         </div>
@@ -151,7 +151,7 @@
                                  <label>Student ID</label>
                                 <div class="form-group">
                                     <asp:textbox class="form-control" ID="textbox6" runat="server" placeholder="ID" MaxLength="7" TextMode="SingleLine"></asp:textbox>
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="Invalid Student ID!" ControlToValidate="textbox6" ForeColor="#CC0000" ValidationExpression="^([1-9]{2})([0-9]{5})$"></asp:RegularExpressionValidator>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="*Invalid Student ID!" ControlToValidate="textbox6" ForeColor="#CC0000" ValidationExpression="^([1-9]{2})([0-9]{5})$"></asp:RegularExpressionValidator>
                                 </div>
                             </div>
 
@@ -159,7 +159,7 @@
                                  <label>Password</label>
                                 <div class="form-group">
                                     <asp:textbox class="form-control" ID="textbox8" runat="server" placeholder="Password" TextMode="Password"></asp:textbox>
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Must have a-AZ-z and 0-9!" ControlToValidate="textbox8" ForeColor="#CC0000" ValidationExpression="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}"></asp:RegularExpressionValidator>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="*Must have a-AZ-z and 0-9!" ControlToValidate="textbox8" ForeColor="#CC0000" ValidationExpression="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}"></asp:RegularExpressionValidator>
                                 </div>
                             </div>
 
@@ -167,7 +167,7 @@
                                  <label>Confirm Password</label>
                                 <div class="form-group">
                                     <asp:textbox class="form-control" ID="textbox9" runat="server" placeholder="Confirm Password" TextMode="Password"></asp:textbox>
-                                    <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Password Does Not Matched!" ControlToCompare="textbox8" ControlToValidate="textbox9" ForeColor="#CC0000"></asp:CompareValidator>
+                                    <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="*Password Doesn't Matched!" ControlToCompare="textbox8" ControlToValidate="textbox9" ForeColor="#CC0000"></asp:CompareValidator>
                                 </div>
                             </div>
                         </div>

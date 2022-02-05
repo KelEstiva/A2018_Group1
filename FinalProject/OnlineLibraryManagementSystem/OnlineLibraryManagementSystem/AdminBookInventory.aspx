@@ -264,14 +264,14 @@
                                                             </div>
                                                             <div class="row">
                                                                 <div class="col-12">
-                                                                    Book PDF -
-                                                                    <asp:Label ID="Label3" runat="server" Font-Bold="True" Text='<%# Eval("book_pdf_link") %>'></asp:Label>
+                                                                    Description -
+                                                                    <asp:Label ID="Label12" runat="server" Font-Bold="True" Text='<%# Eval("book_description") %>'></asp:Label>
                                                                 </div>
                                                             </div>
                                                             <div class="row">
                                                                 <div class="col-12">
-                                                                    Description -
-                                                                    <asp:Label ID="Label12" runat="server" Font-Bold="True" Text='<%# Eval("book_description") %>'></asp:Label>
+                                                                    Book PDF -
+                                                                    <asp:Label ID="Label3" runat="server" Font-Bold="True" Text='<%# Eval("book_pdf_link") %>'></asp:Label>
                                                                 </div>
                                                             </div>
                                                         </div>
