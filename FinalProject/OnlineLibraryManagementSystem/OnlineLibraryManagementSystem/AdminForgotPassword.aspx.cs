@@ -70,7 +70,7 @@ namespace OnlineLibraryManagementSystem
                     client.EnableSsl = true;
                     client.DeliveryMethod = SmtpDeliveryMethod.Network;
                     client.UseDefaultCredentials = false;
-                    client.Credentials = new NetworkCredential("glenmichael05@gmail.com", "michael040599estiva");
+                    client.Credentials = new NetworkCredential("glenmichael05@gmail.com", "qbkvsirhitpkmzmk");
                     MailMessage msg = new MailMessage();
                     msg.To.Add(textbox2.Text);
                     msg.From = new MailAddress("E-Libray..<glenmichael05@gmail.com>");
