@@ -38,46 +38,92 @@ namespace OnlineLibraryManagementSystem
         // Add Button
         protected void Button2_Click(object sender, EventArgs e)
         {
-            if (checkIfPublisherExists())
+            if (textbox1.Text.Equals(""))
             {
-                Response.Write("<script>alert('Publisher ID or Publisher Name already exist.');</script>");
+                Response.Write("<script>alert('Please Enter Publisher ID!');</script>");
+            }
+            else if (textbox2.Text.Equals(""))
+            {
+                Response.Write("<script>alert('Please Enter Publisher Name!');</script>");
             }
             else
             {
-                addNewPublisher();
+                if (checkIfPublisherIdExists())
+                {
+                    Response.Write("<script>alert('Publisher ID Already Exist!');</script>");
+                }
+                else
+                {
+                    if (checkIfPublisherNameExists())
+                    {
+                        Response.Write("<script>alert('Publisher Name Already Exist!');</script>");
+                    }
+                    else
+                    {
+                        addNewPublisher();
+                    }
+                }
             }
         }
 
         // Update button
         protected void Button3_Click(object sender, EventArgs e)
         {
-            if (checkIfPublisherExists())
+            if (textbox1.Text.Equals(""))
             {
-                updatePublisher();
+                Response.Write("<script>alert('Please Enter Publisher ID!');</script>");
             }
             else
             {
-                Response.Write("<script>alert('Publisher does not exist.');</script>");
+                if (checkIfPublisherIdExists())
+                {
+                    if (textbox2.Text.Equals(""))
+                    {
+                        Response.Write("<script>alert('Please Enter Publisher Name!');</script>");
+                    }
+                    else
+                    {
+                        updatePublisher();
+                    }
+                }
+                else
+                {
+                    Response.Write("<script>alert('Publisher ID Does Not Exists.');</script>");
+                }
             }
         }
 
         //Delete Button
         protected void Button4_Click(object sender, EventArgs e)
         {
-            if (checkIfPublisherExists())
+            if (textbox1.Text.Equals(""))
             {
-                deletePublisher();
+                Response.Write("<script>alert('Please Enter Publisher ID!');</script>");
             }
             else
             {
-                Response.Write("<script>alert('Publisher does not exist.');</script>");
+                if (checkIfPublisherIdExists())
+                {
+                    deletePublisher();
+                }
+                else
+                {
+                    Response.Write("<script>alert('Publisher ID Does Not Exists!');</script>");
+                }
             }
         }
 
         // Go Button
         protected void Button1_Click(object sender, EventArgs e)
         {
-            getPublisherByID();
+            if (textbox1.Text.Equals(""))
+            {
+                Response.Write("<script>alert('Please Enter Publisher ID!');</script>");
+            }
+            else
+            {
+                getPublisherByID();
+            }
         }
 
         void getPublisherByID()
@@ -102,7 +148,7 @@ namespace OnlineLibraryManagementSystem
                 }
                 else
                 {
-                    Response.Write("<script>alert('Invalid Publisher ID!');</script>");
+                    Response.Write("<script>alert('Publisher ID Does Not Exists!');</script>");
                 }
             }
             catch (Exception ex)
@@ -110,8 +156,8 @@ namespace OnlineLibraryManagementSystem
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
         }
-
-        bool checkIfPublisherExists()
+        //
+        bool checkIfPublisherNameExists()
         {
             try
             {
@@ -121,7 +167,39 @@ namespace OnlineLibraryManagementSystem
                     con.Open();
                 }
 
-                SqlCommand cmd = new SqlCommand("SELECT * from publisher_master_tbl where publisher_id='" + textbox1.Text.Trim() + "' OR publisher_name='"+textbox2.Text.Trim()+"';", con);
+                SqlCommand cmd = new SqlCommand("SELECT * from publisher_master_tbl where publisher_name='" + textbox2.Text.Trim() + "';", con);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                if (dt.Rows.Count >= 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                return false;
+            }
+        }
+        //
+        bool checkIfPublisherIdExists()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(strcon);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                SqlCommand cmd = new SqlCommand("SELECT * from publisher_master_tbl where publisher_id='" + textbox1.Text.Trim() + "';", con);
 
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();

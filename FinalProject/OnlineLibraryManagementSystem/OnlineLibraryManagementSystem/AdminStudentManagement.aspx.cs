@@ -43,7 +43,7 @@ namespace OnlineLibraryManagementSystem
         {
             if (textbox7.Text.Trim().Equals(""))
             {
-                Response.Write("<script>alert('Please enter Student ID.');</script>");
+                Response.Write("<script>alert('Please Enter Student ID!');</script>");
             }
             else
             {
@@ -55,7 +55,7 @@ namespace OnlineLibraryManagementSystem
         {
             if (textbox7.Text.Trim().Equals(""))
             {
-                Response.Write("<script>alert('Please enter Student ID.');</script>");
+                Response.Write("<script>alert('Please Enter Student ID!');</script>");
             }
             else
             {
@@ -67,7 +67,7 @@ namespace OnlineLibraryManagementSystem
         {
             if (textbox7.Text.Trim().Equals(""))
             {
-                Response.Write("<script>alert('Please enter Student ID.');</script>");
+                Response.Write("<script>alert('Please Enter Student ID!');</script>");
             }
             else
             {
@@ -89,7 +89,7 @@ namespace OnlineLibraryManagementSystem
         {
             if (textbox7.Text.Trim().Equals(""))
             {
-                Response.Write("<script>alert('Please enter Student ID.');</script>");
+                Response.Write("<script>alert('Please Enter Student ID!');</script>");
             }
             else
             {
@@ -116,7 +116,7 @@ namespace OnlineLibraryManagementSystem
                 }
                 else
                 {
-                    Response.Write("<script>alert('Invalid Student ID!');</script>");
+                    Response.Write("<script>alert('Student ID Does Not Exists!');</script>");
 
                 }
             }
@@ -125,7 +125,7 @@ namespace OnlineLibraryManagementSystem
         {
             if (textbox7.Text.Trim().Equals(""))
             {
-                Response.Write("<script>alert('Please enter Student ID.');</script>");
+                Response.Write("<script>alert('Please Enter Student ID!');</script>");
             }
             else
             {
@@ -157,7 +157,7 @@ namespace OnlineLibraryManagementSystem
                     }
                     else
                     {
-                        Response.Write("<script>alert('Student ID does not exist!');</script>");
+                        Response.Write("<script>alert('Student ID Does Not Exists!');</script>");
                     }
                 }
                 catch (Exception ex)
@@ -199,7 +199,7 @@ namespace OnlineLibraryManagementSystem
             }
             else
             {
-                Response.Write("<script>alert('Invalid Student ID!');</script>");
+                Response.Write("<script>alert('Student ID Does Not Exists!');</script>");
             }
         }
         bool checkIfStudentExists()

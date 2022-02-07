@@ -64,7 +64,7 @@ namespace OnlineLibraryManagementSystem
             {
                 Response.Write("<script>alert('Please Input Book Name!');</script>");
             }
-            else if (DropDownList1.SelectedItem.Value == "Select")
+            else if (DropDownList1.SelectedItem.Value == "--Select--")
             {
                 Response.Write("<script>alert('Please Select Book Language!');</script>");
             }
@@ -80,24 +80,13 @@ namespace OnlineLibraryManagementSystem
             {
                 Response.Write("<script>alert('Please Input Book Pages!');</script>");
             }
-            else if (ListBox1.SelectedItem.Value == null)
-            {
-                Response.Write("<script>alert('Please Select Book Genre!');</script>");
-            }
             else if (textbox11.Text.Trim().Equals(""))
             {
                 Response.Write("<script>alert('Please Input Book Description!');</script>");
             }
             else
             {
-                if (checkIfBookExists())
-                {
-                    Response.Write("<script>alert('Book ID or Book Name Already Exist!');</script>");
-                }
-                else
-                {
-                    addNewBook();
-                }
+                addNewBook();
             }
         }
         //Update Book Button
@@ -120,32 +109,32 @@ namespace OnlineLibraryManagementSystem
         //Delete Book Function
         void deleteBookByID()
         {
-                if (checkIfBookExists())
+            if (checkIfBookExists())
+            {
+                try
                 {
-                    try
+                    SqlConnection con = new SqlConnection(strcon);
+                    if (con.State == ConnectionState.Closed)
                     {
-                        SqlConnection con = new SqlConnection(strcon);
-                        if (con.State == ConnectionState.Closed)
-                        {
-                            con.Open();
-                        }
-                        SqlCommand cmd = new SqlCommand("DELETE from book_master_tbl WHERE book_id='" + textbox7.Text.Trim() + "'", con);
-                        cmd.ExecuteNonQuery();
-                        con.Close();
-                        Response.Write("<script>alert('Book Deleted Successfully.');</script>");
-                        clearForm();
-                        GridView1.DataBind();
+                        con.Open();
                     }
-                    catch (Exception ex)
-                    {
-                        Response.Write("<script>alert('" + ex.Message + "');</script>");
-                    }
+                    SqlCommand cmd = new SqlCommand("DELETE from book_master_tbl WHERE book_id='" + textbox7.Text.Trim() + "'", con);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    Response.Write("<script>alert('Book Deleted Successfully.');</script>");
+                    clearForm();
+                    GridView1.DataBind();
                 }
-                else
+                catch (Exception ex)
                 {
-                    Response.Write("<script>alert('Invalid Book ID!');</script>");
+                    Response.Write("<script>alert('" + ex.Message + "');</script>");
+                }
+            }
+            else
+            {
+                Response.Write("<script>alert('Invalid Book ID!');</script>");
 
-                }
+            }
         }
         //Clear Form Function
         void clearForm()
@@ -160,6 +149,7 @@ namespace OnlineLibraryManagementSystem
             textbox9.Text = "";
             ListBox1.ClearSelection();
             textbox1.Text = "";
+            textbox11.Text = "";
             //FileUpload3
             //FileUpload4
         }
@@ -306,7 +296,7 @@ namespace OnlineLibraryManagementSystem
                 {
                     con.Open();
                 }
-                SqlCommand cmd = new SqlCommand("Select * FROM book_master_tbl WHERE book_id='"+textbox7.Text.Trim()+"';", con);
+                SqlCommand cmd = new SqlCommand("Select * FROM book_master_tbl WHERE book_id='" + textbox7.Text.Trim() + "';", con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -324,11 +314,11 @@ namespace OnlineLibraryManagementSystem
                     ListBox1.ClearSelection();
 
                     string[] genre = dt.Rows[0]["genre"].ToString().Trim().Split(',');
-                    for (int i=0; i<genre.Length; i++)
+                    for (int i = 0; i < genre.Length; i++)
                     {
-                        for (int j=0; j<ListBox1.Items.Count; j++)
+                        for (int j = 0; j < ListBox1.Items.Count; j++)
                         {
-                            if (ListBox1.Items[j].ToString()==genre[i])
+                            if (ListBox1.Items[j].ToString() == genre[i])
                             {
                                 ListBox1.Items[j].Selected = true;
                             }
@@ -373,7 +363,7 @@ namespace OnlineLibraryManagementSystem
                 DropDownList2.DataValueField = "publisher_name";
                 DropDownList2.DataBind();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
@@ -389,7 +379,7 @@ namespace OnlineLibraryManagementSystem
                     con.Open();
                 }
 
-                SqlCommand cmd = new SqlCommand("SELECT * from book_master_tbl where book_id='" + textbox7.Text.Trim() + "' OR book_name='"+textbox3.Text.Trim()+"';", con);
+                SqlCommand cmd = new SqlCommand("SELECT * from book_master_tbl where book_id='" + textbox7.Text.Trim() + "' OR book_name='" + textbox3.Text.Trim() + "';", con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -418,70 +408,73 @@ namespace OnlineLibraryManagementSystem
         //Adding Button function
         void addNewBook()
         {
-            try
+            if (checkIfBookExists())
             {
-                string genres = "";
-                foreach (int i in ListBox1.GetSelectedIndices())
-                {
-                    genres = genres + ListBox1.Items[i] + ',';
-                }
-                genres = genres.Remove(genres.Length - 1);
-
-                string filepath_img = "~/book_inventory/books1.png";
-                string filename_img = Path.GetFileName(FileUpload3.PostedFile.FileName);
-                FileUpload3.SaveAs(Server.MapPath("book_inventory/" + filename_img));
-                filepath_img = "~/book_inventory/" + filename_img;
-
-                string filepath_pdf = "~/book_pdf/";
-                string filename_pdf = Path.GetFileName(FileUpload4.PostedFile.FileName);
-                FileUpload4.SaveAs(Server.MapPath("book_pdf/" + filename_pdf));
-                filepath_pdf = "~/book_pdf/" + filename_pdf;
-
-                SqlConnection con = new SqlConnection(strcon);
-                if (con.State == ConnectionState.Closed)
-                {
-                    con.Open();
-                }
-                SqlCommand cmd = new SqlCommand("INSERT INTO book_master_tbl(book_id,book_name,genre,author_name,publisher_name,publish_date,language,edition,no_of_pages,book_description,book_img_link,book_pdf_link) values (@book_id,@book_name,@genre,@author_name,@publisher_name,@publish_date,@language,@edition,@no_of_pages,@book_description,@book_img_link,@book_pdf_link)", con);
-                cmd.Parameters.AddWithValue("@book_id", textbox7.Text.Trim());
-                cmd.Parameters.AddWithValue("@book_name", textbox3.Text.Trim());
-                cmd.Parameters.AddWithValue("@language", DropDownList1.SelectedItem.Value);
-                cmd.Parameters.AddWithValue("@publisher_name", DropDownList2.SelectedItem.Value);
-                cmd.Parameters.AddWithValue("@author_name", DropDownList3.SelectedItem.Value);
-                cmd.Parameters.AddWithValue("@publish_date", textbox2.Text.Trim());
-                cmd.Parameters.AddWithValue("@edition", textbox1.Text.Trim());
-                cmd.Parameters.AddWithValue("@genre", genres);
-                cmd.Parameters.AddWithValue("@no_of_pages", textbox9.Text.Trim());
-                cmd.Parameters.AddWithValue("@book_description", textbox11.Text.Trim());
-                cmd.Parameters.AddWithValue("@book_img_link", filepath_img);
-                cmd.Parameters.AddWithValue("@book_pdf_link", filepath_pdf);
-
-                if (FileUpload3.HasFile && FileUpload4.HasFile)
-                {
-                    string FileExtension_IMG = Path.GetExtension(FileUpload3.FileName);
-                    string FileExtension_PDF = Path.GetExtension(FileUpload4.FileName);
-
-                    if ((FileExtension_IMG ==".jpg" || FileExtension_IMG == ".png") && FileExtension_PDF == ".pdf")
-                    {
-                        cmd.ExecuteNonQuery();
-                        con.Close();
-                        Response.Write("<script>alert('Book Added Successfully.');</script>");
-                        clearForm();
-                        GridView1.DataBind();
-                    }
-                    else
-                    {
-                        Response.Write("<script>alert('Please Upload JPG or PNG File for Book Image and PDF File for Book PDF!');</script>");
-                    }
-                }
-                else
-                {
-                    Response.Write("<script>alert('Please Upload Image or PDF File!');</script>");
-                }
+                Response.Write("<script>alert('Book ID Already Exists!');</script>");
             }
-            catch (Exception ex)
+            else
             {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                try
+                {
+                    string genres = "";
+                    foreach (int i in ListBox1.GetSelectedIndices())
+                    {
+                        genres = genres + ListBox1.Items[i] + ',';
+                    }
+                    genres = genres.Remove(genres.Length - 1);
+
+                    string filepath_img = "~/book_inventory/books1.png";
+                    string filename_img = Path.GetFileName(FileUpload3.PostedFile.FileName);
+                    FileUpload3.SaveAs(Server.MapPath("book_inventory/" + filename_img));
+                    filepath_img = "~/book_inventory/" + filename_img;
+
+                    string filepath_pdf = "~/book_pdf/";
+                    string filename_pdf = Path.GetFileName(FileUpload4.PostedFile.FileName);
+                    FileUpload4.SaveAs(Server.MapPath("book_pdf/" + filename_pdf));
+                    filepath_pdf = "~/book_pdf/" + filename_pdf;
+
+                    SqlConnection con = new SqlConnection(strcon);
+                    if (con.State == ConnectionState.Closed)
+                    {
+                        con.Open();
+                    }
+                    SqlCommand cmd = new SqlCommand("INSERT INTO book_master_tbl(book_id,book_name,genre,author_name,publisher_name,publish_date,language,edition,no_of_pages,book_description,book_img_link,book_pdf_link) values (@book_id,@book_name,@genre,@author_name,@publisher_name,@publish_date,@language,@edition,@no_of_pages,@book_description,@book_img_link,@book_pdf_link)", con);
+                    cmd.Parameters.AddWithValue("@book_id", textbox7.Text.Trim());
+                    cmd.Parameters.AddWithValue("@book_name", textbox3.Text.Trim());
+                    cmd.Parameters.AddWithValue("@language", DropDownList1.SelectedItem.Value);
+                    cmd.Parameters.AddWithValue("@publisher_name", DropDownList2.SelectedItem.Value);
+                    cmd.Parameters.AddWithValue("@author_name", DropDownList3.SelectedItem.Value);
+                    cmd.Parameters.AddWithValue("@publish_date", textbox2.Text.Trim());
+                    cmd.Parameters.AddWithValue("@edition", textbox1.Text.Trim());
+                    cmd.Parameters.AddWithValue("@genre", genres);
+                    cmd.Parameters.AddWithValue("@no_of_pages", textbox9.Text.Trim());
+                    cmd.Parameters.AddWithValue("@book_description", textbox11.Text.Trim());
+                    cmd.Parameters.AddWithValue("@book_img_link", filepath_img);
+                    cmd.Parameters.AddWithValue("@book_pdf_link", filepath_pdf);
+
+                    if (FileUpload3.HasFile && FileUpload4.HasFile)
+                    {
+                        string FileExtension_IMG = Path.GetExtension(FileUpload3.FileName);
+                        string FileExtension_PDF = Path.GetExtension(FileUpload4.FileName);
+
+                        if ((FileExtension_IMG == ".jpg" || FileExtension_IMG == ".png") && FileExtension_PDF == ".pdf")
+                        {
+                            cmd.ExecuteNonQuery();
+                            con.Close();
+                            Response.Write("<script>alert('Book Added Successfully.');</script>");
+                            clearForm();
+                            GridView1.DataBind();
+                        }
+                        else
+                        {
+                            Response.Write("<script>alert('Please Upload JPG or PNG File For Book Image And PDF File for Book PDF!');</script>");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Response.Write("<script>alert('" + ex.Message + "');</script>");
+                }
             }
         }
     }

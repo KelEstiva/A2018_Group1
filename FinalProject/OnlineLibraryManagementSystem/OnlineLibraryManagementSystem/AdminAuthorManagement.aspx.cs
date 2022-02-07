@@ -36,44 +36,76 @@ namespace OnlineLibraryManagementSystem
         // Add Button
         protected void Button2_Click(object sender, EventArgs e)
         {
-            if (textbox1.Text.Trim().Equals("") | textbox2.Text.Trim().Equals(""))
+            if (textbox1.Text.Trim().Equals(""))
             {
-                Response.Write("<script>alert('Please fill all the textfields');</script>");
+                Response.Write("<script>alert('Please Enter Author ID!');</script>");
+            }
+            else if (textbox2.Text.Trim().Equals(""))
+            {
+                Response.Write("<script>alert('Please Enter Author Name!');</script>");
             }
             else
             {
-                if (checkIfAuthorExists())
+                if (checkIfAuthorIdExists())
                 {
-                    Response.Write("<script>alert('Author ID or Author Name already exist.');</script>");
+                    Response.Write("<script>alert('Author ID Already Exists!');</script>");
                 }
                 else
                 {
-                    addNewAuthor();
+                    if (checkIfAuthorNameExists())
+                    {
+                        Response.Write("<script>alert('Author Name Already Exists!');</script>");
+                    }
+                    else
+                    {
+                        addNewAuthor();
+                    }
                 }
             }
         }
         //Update Button
         protected void Button3_Click(object sender, EventArgs e)
         {
-            if (checkIfAuthorExists())
+            if (textbox1.Text.Equals(""))
             {
-                updateAuthor();
+                Response.Write("<script>alert('Please Enter Author ID!');</script>");
             }
             else
             {
-                Response.Write("<script>alert('Author does not exist.');</script>");
+                if (checkIfAuthorIdExists())
+                {
+                    if (textbox2.Text.Equals(""))
+                    {
+                        Response.Write("<script>alert('Please Enter Author Name!');</script>");
+                    }
+                    else
+                    {
+                        updateAuthor();
+                    }
+                }
+                else
+                {
+                    Response.Write("<script>alert('Author ID Does Not Exists!');</script>");
+                }
             }
         }
         //Delete Button
         protected void Button4_Click(object sender, EventArgs e)
         {
-            if (checkIfAuthorExists())
+            if (textbox1.Text.Equals(""))
             {
-                deleteAuthor();
+                Response.Write("<script>alert('Please Enter Author ID!');</script>");
             }
             else
             {
-                Response.Write("<script>alert('Author does not exist.');</script>");
+                if (checkIfAuthorIdExists())
+                {
+                    deleteAuthor();
+                }
+                else
+                {
+                    Response.Write("<script>alert('Author Does Not Exists!');</script>");
+                }
             }
         }
         //Go Button
@@ -81,7 +113,7 @@ namespace OnlineLibraryManagementSystem
         {
             if (textbox1.Text.Trim().Equals(""))
             {
-                Response.Write("<script>alert('Please enter author ID!');</script>");
+                Response.Write("<script>alert('Please Enter Author ID!');</script>");
             }
             else
             {
@@ -112,7 +144,7 @@ namespace OnlineLibraryManagementSystem
                 }
                 else
                 {
-                Response.Write("<script>alert('Invalid Author ID!');</script>");
+                Response.Write("<script>alert('Author ID Does Not Exists!');</script>");
                 }
             }
             catch (Exception ex)
@@ -191,7 +223,8 @@ namespace OnlineLibraryManagementSystem
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
         }
-        bool checkIfAuthorExists()
+        //
+        bool checkIfAuthorNameExists()
         {
             try
             {
@@ -201,7 +234,39 @@ namespace OnlineLibraryManagementSystem
                     con.Open();
                 }
 
-                SqlCommand cmd = new SqlCommand("SELECT * from author_master_tbl where author_id='" + textbox1.Text.Trim() + "' OR author_name='" + textbox2.Text.Trim() + "';", con);
+                SqlCommand cmd = new SqlCommand("SELECT * from author_master_tbl where author_name='" + textbox2.Text.Trim() + "';", con);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                if (dt.Rows.Count >= 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                return false;
+            }
+        }
+        //
+        bool checkIfAuthorIdExists()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(strcon);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                SqlCommand cmd = new SqlCommand("SELECT * from author_master_tbl where author_id='" + textbox1.Text.Trim() + "';", con);
 
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();

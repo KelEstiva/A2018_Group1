@@ -161,7 +161,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label>Upload PDF File</label>
-                                <asp:FileUpload Class="form-control" ID="FileUpload4" runat="server" />
+                                <asp:FileUpload onchange="readURL(this);" Class="form-control" ID="FileUpload4" runat="server" />
                             </div>
                         </div>
                         <br>
