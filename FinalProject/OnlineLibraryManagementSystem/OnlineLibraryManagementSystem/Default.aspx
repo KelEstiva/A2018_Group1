@@ -84,8 +84,8 @@
                 <div class="col-md-4">
                    <center>
                    <img width="260px" src="imgs/read-online.jpg" />
-                   <h4>Read Online</h4>
-                   <p class="text-justify"> - Users can view or download related pdf files to a book they want to read.</p>
+                   <h4>Download PDF File</h4>
+                   <p class="text-justify"> - Users can download related pdf files to a book they want to read.</p>
                    </center>
                </div>
 

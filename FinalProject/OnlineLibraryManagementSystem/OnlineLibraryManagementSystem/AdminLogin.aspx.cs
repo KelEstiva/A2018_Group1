@@ -58,8 +58,8 @@ namespace OnlineLibraryManagementSystem
                         Session["username"] = dr.GetValue(0).ToString();
                         Session["fullname"] = dr.GetValue(2).ToString();
                         Session["role"] = "admin";
+                        Response.Redirect("Default.aspx");
                     }
-                    Response.Redirect("Default.aspx");
                 }
                 else
                 {

@@ -159,7 +159,7 @@
                                  <label>Password</label>
                                 <div class="form-group">
                                     <asp:textbox class="form-control" ID="textbox8" runat="server" placeholder="Password" TextMode="Password"></asp:textbox>
-                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="*Must have a-AZ-z and 0-9!" ControlToValidate="textbox8" ForeColor="#CC0000" ValidationExpression="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}"></asp:RegularExpressionValidator>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="*Password Must Have  0-9!" ControlToValidate="textbox8" ForeColor="#CC0000" ValidationExpression="^(?=.*[a-z])(?=.*\d)[a-z\d]{8,}"></asp:RegularExpressionValidator>
                                 </div>
                             </div>
 

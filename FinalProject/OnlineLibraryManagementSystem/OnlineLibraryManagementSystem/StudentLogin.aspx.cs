@@ -27,11 +27,11 @@ namespace OnlineLibraryManagementSystem
         {
             if (textbox1.Text.Equals(""))
             {
-                Response.Write("<script>alert('Please Input Student ID!');</script>");
+                Response.Write("<script>alert('Please Enter Student ID!');</script>");
             }
             else if(textbox2.Text.Equals(""))
             {
-                Response.Write("<script>alert('Please Input Password!');</script>");
+                Response.Write("<script>alert('Please Enter Password!');</script>");
             }
             else
             {
@@ -61,7 +61,7 @@ namespace OnlineLibraryManagementSystem
                     }
                     if (Session["status"].Equals("Activated"))
                     {
-                        Response.Write("<script>aler('Login Successful.')</script>");
+                        Response.Write("<script>alert('Login Successful.')</script>");
                         Response.Redirect("Default.aspx");
                     }
                     else if (Session["status"].Equals("Pending"))

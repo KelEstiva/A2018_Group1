@@ -46,7 +46,7 @@ namespace OnlineLibraryManagementSystem
         {
             if (textbox7.Text.Trim().Equals(""))
             {
-                Response.Write("<script>alert('Please Input Book ID!');</script>");
+                Response.Write("<script>alert('Please Enter Book ID!');</script>");
             }
             else
             {
@@ -58,31 +58,31 @@ namespace OnlineLibraryManagementSystem
         {
             if (textbox7.Text.Trim().Equals(""))
             {
-                Response.Write("<script>alert('Please Input Book ID!');</script>");
+                Response.Write("<script>alert('Please Enter Book ID!');</script>");
             }
             else if (textbox3.Text.Trim().Equals(""))
             {
-                Response.Write("<script>alert('Please Input Book Name!');</script>");
+                Response.Write("<script>alert('Please Enter Book Name!');</script>");
             }
             else if (DropDownList1.SelectedItem.Value == "--Select--")
             {
-                Response.Write("<script>alert('Please Select Book Language!');</script>");
+                Response.Write("<script>alert('Please Enter Book Language!');</script>");
             }
             else if (textbox2.Text.Trim().Equals(""))
             {
-                Response.Write("<script>alert('Please Input Book Publish Date!');</script>");
+                Response.Write("<script>alert('Please Enter Book Publish Date!');</script>");
             }
             else if (textbox1.Text.Trim().Equals(""))
             {
-                Response.Write("<script>alert('Please Input Book Edition!');</script>");
+                Response.Write("<script>alert('Please Enter Book Edition!');</script>");
             }
             else if (textbox9.Text.Trim().Equals(""))
             {
-                Response.Write("<script>alert('Please Input Book Pages!');</script>");
+                Response.Write("<script>alert('Please Enter Book Pages!');</script>");
             }
             else if (textbox11.Text.Trim().Equals(""))
             {
-                Response.Write("<script>alert('Please Input Book Description!');</script>");
+                Response.Write("<script>alert('Please Enter Book Description!');</script>");
             }
             else
             {
@@ -92,14 +92,46 @@ namespace OnlineLibraryManagementSystem
         //Update Book Button
         protected void Button1_Click(object sender, EventArgs e)
         {
-            updateBookByID();
+            if (textbox7.Text.Trim().Equals(""))
+            {
+                Response.Write("<script>alert('Please Enter Book ID!');</script>");
+            }
+            else if (textbox3.Text.Trim().Equals(""))
+            {
+                Response.Write("<script>alert('Please Enter Book Name!');</script>");
+            }
+            else if (DropDownList1.SelectedItem.Value == "--Select--")
+            {
+                Response.Write("<script>alert('Please Enter Book Language!');</script>");
+            }
+            else if (textbox2.Text.Trim().Equals(""))
+            {
+                Response.Write("<script>alert('Please Enter Book Publish Date!');</script>");
+            }
+            else if (textbox1.Text.Trim().Equals(""))
+            {
+                Response.Write("<script>alert('Please Enter Book Edition!');</script>");
+            }
+            else if (textbox9.Text.Trim().Equals(""))
+            {
+                Response.Write("<script>alert('Please Enter Book Pages!');</script>");
+            }
+            else if (textbox11.Text.Trim().Equals(""))
+            {
+                Response.Write("<script>alert('Please Enter Book Description!');</script>");
+            }
+            else
+            {
+                updateBookByID();
+            }
+            
         }
         //Delete Book Button
         protected void Button2_Click(object sender, EventArgs e)
         {
             if (textbox7.Text.Trim().Equals(""))
             {
-                Response.Write("<script>alert('Please Enter Book ID.');</script>");
+                Response.Write("<script>alert('Please Enter Book ID!');</script>");
             }
             else
             {
@@ -132,7 +164,7 @@ namespace OnlineLibraryManagementSystem
             }
             else
             {
-                Response.Write("<script>alert('Invalid Book ID!');</script>");
+                Response.Write("<script>alert('Book ID Doesn't Exists!');</script>");
 
             }
         }
@@ -283,7 +315,7 @@ namespace OnlineLibraryManagementSystem
             }
             else
             {
-                Response.Write("<script>alert('Invalid Book ID!');</script>");
+                Response.Write("<script>alert('Book ID Doesn't Exists!');</script>");
             }
         }
         //Go Button Function
@@ -329,7 +361,7 @@ namespace OnlineLibraryManagementSystem
                 }
                 else
                 {
-                    Response.Write("<script>alert('Invalid Book ID!');</script>");
+                    Response.Write("<script>alert('Book ID Doesn't Exists!');</script>");
                 }
             }
             catch (Exception ex)
@@ -452,7 +484,7 @@ namespace OnlineLibraryManagementSystem
                     cmd.Parameters.AddWithValue("@book_img_link", filepath_img);
                     cmd.Parameters.AddWithValue("@book_pdf_link", filepath_pdf);
 
-                    if (FileUpload3.HasFile && FileUpload4.HasFile)
+                    if(FileUpload3.HasFile && FileUpload4.HasFile)
                     {
                         string FileExtension_IMG = Path.GetExtension(FileUpload3.FileName);
                         string FileExtension_PDF = Path.GetExtension(FileUpload4.FileName);
@@ -469,6 +501,10 @@ namespace OnlineLibraryManagementSystem
                         {
                             Response.Write("<script>alert('Please Upload JPG or PNG File For Book Image And PDF File for Book PDF!');</script>");
                         }
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('Please Upload Book Image And PDF File!');</script>");
                     }
                 }
                 catch (Exception ex)

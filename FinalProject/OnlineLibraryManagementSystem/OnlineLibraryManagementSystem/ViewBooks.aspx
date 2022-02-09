@@ -36,7 +36,7 @@
                                 <asp:GridView class="table table-striped table-bordered" ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="book_id" DataSourceID="SqlDataSource2">
                                     <Columns>
                                         <asp:BoundField DataField="book_id" HeaderText="ID" ReadOnly="True" SortExpression="book_id" />
-                                        <asp:HyperLinkField DataNavigateUrlFields="book_pdf_link" Text="ViewBook">
+                                        <asp:HyperLinkField DataNavigateUrlFields="book_pdf_link" Text="Download">
                                         <ItemStyle HorizontalAlign="Center" />
                                         </asp:HyperLinkField>
                                         <asp:TemplateField>
