@@ -502,10 +502,6 @@ namespace OnlineLibraryManagementSystem
                             Response.Write("<script>alert('Please Upload JPG or PNG File For Book Image And PDF File for Book PDF!');</script>");
                         }
                     }
-                    else
-                    {
-                        Response.Write("<script>alert('Please Upload Book Image And PDF File!');</script>");
-                    }
                 }
                 catch (Exception ex)
                 {
